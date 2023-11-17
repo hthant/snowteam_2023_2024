@@ -9,7 +9,6 @@ Snowflake Team Project Files AY2023_2024
 - Connor Mackell:
 - Kyle Nilsson:
 - Lauren Rickert:
--   i am making 
 - Ryan Zonnefeld: 
 
 ### Github Resources
