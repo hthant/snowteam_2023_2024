@@ -10,3 +10,4 @@ else
         # Where the alert command can go
 	python3 sendDiscordMessage.py $device
 fi
+
