@@ -1,0 +1,5 @@
+This is the math that goes over the way I calculated the resolution needed based on how many pixels would be on the object. Pixels in the x and y direction calculated seperately.
+
+Also goes through the fps math but not as necessary.
+
+The 2nd page goes over the total bytes these cameras produce if we have 8 of them running at 22fps and has a resoltuino of 12MP.
