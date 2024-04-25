@@ -1,0 +1,13 @@
+#!/bin/bash
+
+device=$1
+timeout=3      #This is in seconds
+
+if ping -c 5 -W $timeout $device > /dev/null; then
+	echo "Connection to $device is OK"
+else
+ 	echo "Connection to $device lost!"
+        # Where the alert command can go
+	python3 sendDiscordMessage.py $device
+fi
+

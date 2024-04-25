@@ -1,0 +1,6 @@
+tx2.cc is c++ code for network tests
+
+ethConnect.sh pulls files from a remote device and copies them to your local device. Can change for loop to change amount of iterations.
+time.sh times ethConnect.sh and outputs the speed of the transfer and seocnds and the file size.
+
+ethConnectRemote.sh pushes files from a remote location to a local device you want to store all the files on. Run time.sh on it to time the network transfer.
