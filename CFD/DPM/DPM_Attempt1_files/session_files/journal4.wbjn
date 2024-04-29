@@ -1,0 +1,119 @@
+# encoding: utf-8
+# 2023 R2
+SetScriptVersion(Version="23.2.142")
+system1 = GetSystem(Name="FFF")
+results1 = system1.GetContainer(ComponentName="Results")
+results1.Edit()
+results1.SendCommand(Command="""VIEW:View 1
+  Camera Mode = User Specified
+  CAMERA:
+    Option = Pivot Point and Quaternion
+    Pivot Point = 5.08, 3.175, 0
+    Scale = 0.194282
+    Pan = 0, 0
+    Rotation Quaternion = 0.279848, -0.364705, -0.115917, 0.880476
+    
+  END
+
+END
+
+> update
+DATA READER:
+Timestep Match Criterion = Same Step
+Timestep Sync Mode = By Time Value
+Timevalue Match Criterion = Same Value
+END
+ANIMATION: ANIMATION
+TimeAnim Viewer Animation = Off
+TimeAnim Viewer Animation Type = Sweep
+TimeAnim Object List = 
+TimeAnim Control Case = Case FFF
+TimeAnim Control Variable = Timestep
+TimeAnim Speed Control = Off
+TimeAnim Frame Interval = All Timesteps
+TimeAnim Frame Spacing = Equal In Time
+TimeAnim Number Of Frames = 21
+TimeAnim Timestep Interval = 2
+TimeAnim Specify Range = Off
+TimeAnim MPEG Filename = U://FFF.wmv
+TimeAnim Save MPEG = Off
+TimeAnim Looping Cycles = 1
+Video Format = wmv
+END""")
+results1.SendCommand(Command="""DATA READER:
+Timestep Match Criterion = Same Step
+Timestep Sync Mode = By Time Value
+Timevalue Match Criterion = Same Value
+END
+ANIMATION: ANIMATION
+TimeAnim Viewer Animation = Off
+TimeAnim Viewer Animation Type = Sweep
+TimeAnim Object List = 
+TimeAnim Control Case = Case FFF
+TimeAnim Control Variable = Timestep
+TimeAnim Speed Control = Off
+TimeAnim Frame Interval = All Timesteps
+TimeAnim Frame Spacing = Equal In Time
+TimeAnim Number Of Frames = 21
+TimeAnim Timestep Interval = 2
+TimeAnim Specify Range = Off
+TimeAnim MPEG Filename = U://FFF.wmv
+TimeAnim Save MPEG = Off
+TimeAnim Looping Cycles = 1
+Video Format = wmv
+END
+>animate timestepAnimate""")
+results1.SendCommand(Command="""VIEW:View 1
+  Camera Mode = User Specified
+  CAMERA:
+    Option = Pivot Point and Quaternion
+    Pivot Point = 5.08, 3.175, 0
+    Scale = 0.194282
+    Pan = 0, 0
+    Rotation Quaternion = -0.0695335, -0.0568792, -0.122435, 0.988402
+    
+  END
+
+END
+
+> update
+DATA READER:
+Timestep Match Criterion = Same Step
+Timestep Sync Mode = By Time Value
+Timevalue Match Criterion = Same Value
+END
+ANIMATION: ANIMATION
+TimeAnim Viewer Animation = Off
+TimeAnim Viewer Animation Type = Sweep
+TimeAnim Object List = 
+TimeAnim Control Case = Case FFF
+TimeAnim Control Variable = Timestep
+TimeAnim Speed Control = Off
+TimeAnim Frame Interval = All Timesteps
+TimeAnim Frame Spacing = Equal In Time
+TimeAnim Number Of Frames = 21
+TimeAnim Timestep Interval = 2
+TimeAnim Specify Range = Off
+TimeAnim MPEG Filename = U://FFF.wmv
+TimeAnim Save MPEG = Off
+TimeAnim Looping Cycles = 1
+Video Format = wmv
+END
+>animate timestepAnimate""")
+results1.Exit()
+solution1 = system1.GetContainer(ComponentName="Solution")
+solution1.Edit()
+setup1 = system1.GetContainer(ComponentName="Setup")
+setup1.SendCommand(Command='(cx-gui-do cx-activate-tab-index "NavigationPane*Frame1(TreeTab)" 0)(cx-gui-do cx-activate-tab-index "NavigationPane*Frame1(TreeTab)" 1)')
+setup1.SendCommand(Command='/file/set-tui-version "23.2"(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Setup|Cell Zone Conditions"))')
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Setup|Cell Zone Conditions"))(cx-gui-do cx-activate-item "NavigationPane*Frame2*Table1*List_Tree2")')
+mesh1 = system1.GetContainer(ComponentName="Mesh")
+mesh1.Edit()
+mesh1.Exit()
+meshComponent1 = system1.GetComponent(Name="Mesh")
+meshComponent1.Update(AllDependencies=True)
+mesh1.Edit()
+setup1.SendCommand(Command="(cx-gui-do cx-set-list-tree-selections \"NavigationPane*Frame2*Table1*List_Tree2\" (list \"Setup|Cell Zone Conditions\"))(cx-gui-do cx-set-list-selections \"Boundary Conditions*Table1*List2(Zone)\" '( 0))(cx-gui-do cx-activate-item \"Boundary Conditions*Table1*List2(Zone)\")")
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "MenuBar*FileMenu*Close Fluent")')
+Save(Overwrite=True)
+Save(Overwrite=True)
