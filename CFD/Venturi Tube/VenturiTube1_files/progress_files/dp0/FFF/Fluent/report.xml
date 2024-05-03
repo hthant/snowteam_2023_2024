@@ -1,0 +1,457 @@
+<FluentXMLReport>
+<version>
+Fluent
+Version: 3d, dp, pbns, trans-sst (3d, double precision, pressure-based, trans-sst model)
+Release: 23.2.0
+Title: 
+</version>
+
+<Models>
+
+Models
+------
+
+   Model                        Settings               
+   -------------------------------------------------
+   Space                        3D                     
+   Time                         Steady                 
+   Viscous                      Transition SST model   
+   Heat Transfer                Enabled                
+   Solidification and Melting   Disabled               
+   Radiation                    None                   
+   Species                      Disabled               
+   Coupled Dispersed Phase      Disabled               
+   NOx Pollutants               Disabled               
+   SOx Pollutants               Disabled               
+   Soot                         Disabled               
+   Mercury Pollutants           Disabled               
+   Structure                    Disabled               
+   Acoustics                    Disabled               
+   Eulerian Wall Film           Disabled               
+   Potential/Electrochemistry   Disabled               
+   Multiphase                   Disabled               
+
+</Models>
+
+<MaterialProperties>
+Material Properties
+-------------------
+
+   Material: air (fluid)
+
+      Property               Units      Method     Value(s)     
+      -------------------------------------------------------
+      Density                kg/m^3     constant   1.225        
+      Cp (Specific Heat)     J/(kg K)   constant   1006.43      
+      Thermal Conductivity   W/(m K)    constant   0.0242       
+      Viscosity              kg/(m s)   constant   1.7894e-05   
+      Molecular Weight       kg/kmol    constant   28.966       
+
+   Material: aluminum (solid)
+
+      Property               Units      Method     Value(s)   
+      -----------------------------------------------------
+      Density                kg/m^3     constant   2719       
+      Cp (Specific Heat)     J/(kg K)   constant   871        
+      Thermal Conductivity   W/(m K)    constant   202.4      
+
+</MaterialProperties>
+
+<CellZoneConditions>
+Cell Zone Conditions
+--------------------
+
+   Zones
+
+      name                                     id   type    
+      ---------------------------------------------------
+      venturitube1-freeparts_cut-extrude3_4_   9    solid   
+      venturitube1-freeparts_cut-extrude3_3_   7    solid   
+      venturitube1-freeparts_cut-extrude3_2_   6    solid   
+      venturitube1-freeparts_cut-extrude3_1_   8    solid   
+      venturitube1-freeparts_cut-extrude3_5_   10   fluid   
+
+   Setup Conditions
+
+      venturitube1-freeparts_cut-extrude3_4_
+
+         Condition       Value   
+         ---------------------
+         Frame Motion?   no      
+
+      venturitube1-freeparts_cut-extrude3_3_
+
+         Condition       Value   
+         ---------------------
+         Frame Motion?   no      
+
+      venturitube1-freeparts_cut-extrude3_2_
+
+         Condition       Value   
+         ---------------------
+         Frame Motion?   no      
+
+      venturitube1-freeparts_cut-extrude3_1_
+
+         Condition       Value   
+         ---------------------
+         Frame Motion?   no      
+
+      venturitube1-freeparts_cut-extrude3_5_
+
+         Condition       Value   
+         ---------------------
+         Frame Motion?   no      
+
+</CellZoneConditions>
+
+<BoundaryConditions>
+Boundary Conditions
+-------------------
+
+   Zones
+
+      name                                                                                                                   id   type              
+      -------------------------------------------------------------------------------------------------------------------------------------------
+      wall-31-shadow                                                                                                         46   wall              
+      wall-31                                                                                                                31   wall              
+      wall-35-shadow                                                                                                         45   wall              
+      wall-35                                                                                                                35   wall              
+      wall-36-shadow                                                                                                         44   wall              
+      wall-36                                                                                                                36   wall              
+      wall-37-shadow                                                                                                         43   wall              
+      wall-37                                                                                                                37   wall              
+      wall-12-shadow                                                                                                         42   wall              
+      wall-12                                                                                                                12   wall              
+      wall-41                                                                                                                41   wall              
+      wall-40                                                                                                                40   wall              
+      wall-39                                                                                                                39   wall              
+      wall-38                                                                                                                38   wall              
+      wall-33                                                                                                                33   wall              
+      wall-32                                                                                                                32   wall              
+      wall-30                                                                                                                30   wall              
+      wall-29                                                                                                                29   wall              
+      symmetry                                                                                                               13   symmetry          
+      inlet                                                                                                                  14   velocity-inlet    
+      outlet                                                                                                                 15   pressure-outlet   
+      walls                                                                                                                  16   wall              
+      chamber-venturitube1-freeparts_cut-extrude3_2_                                                                         17   wall              
+      chamber-venturitube1-freeparts_cut-extrude3_3_                                                                         18   wall              
+      chamber-venturitube1-freeparts_cut-extrude3_1_                                                                         19   wall              
+      chamber-venturitube1-freeparts_cut-extrude3_4_                                                                         20   wall              
+      contact_region_4-src                                                                                                   21   interface         
+      chamber-contact_region_4-trg                                                                                           22   interface         
+      contact_region_5-src                                                                                                   23   interface         
+      chamber-contact_region_5-trg                                                                                           24   interface         
+      chamber-contact_region-contact_region_2-contact_region_2-contact_region_3-src-venturitube1-freeparts_cut-extrude3_2_   25   interface         
+      chamber-contact_region-contact_region_2-contact_region_2-contact_region_3-src-venturitube1-freeparts_cut-extrude3_3_   26   interface         
+      contact_region-contact_region_2-contact_region_2-contact_region_3-trg                                                  27   interface         
+      chamber-contact_region-contact_region_2-contact_region_2-contact_region_3-trg                                          28   interface         
+
+   Setup Conditions
+
+      wall-31-shadow
+
+         Condition         Value     
+         -------------------------
+         Thermal BC Type   Coupled   
+
+      wall-31
+
+         Condition                  Value             
+         ------------------------------------------
+         Thermal BC Type            Coupled           
+         Wall Motion                Stationary Wall   
+         Shear Boundary Condition   No Slip           
+
+      wall-35-shadow
+
+         Condition                  Value             
+         ------------------------------------------
+         Thermal BC Type            Coupled           
+         Wall Motion                Stationary Wall   
+         Shear Boundary Condition   No Slip           
+
+      wall-35
+
+         Condition         Value     
+         -------------------------
+         Thermal BC Type   Coupled   
+
+      wall-36-shadow
+
+         Condition         Value     
+         -------------------------
+         Thermal BC Type   Coupled   
+
+      wall-36
+
+         Condition         Value     
+         -------------------------
+         Thermal BC Type   Coupled   
+
+      wall-37-shadow
+
+         Condition                  Value             
+         ------------------------------------------
+         Thermal BC Type            Coupled           
+         Wall Motion                Stationary Wall   
+         Shear Boundary Condition   No Slip           
+
+      wall-37
+
+         Condition         Value     
+         -------------------------
+         Thermal BC Type   Coupled   
+
+      wall-12-shadow
+
+         Condition         Value     
+         -------------------------
+         Thermal BC Type   Coupled   
+
+      wall-12
+
+         Condition                  Value             
+         ------------------------------------------
+         Thermal BC Type            Coupled           
+         Wall Motion                Stationary Wall   
+         Shear Boundary Condition   No Slip           
+
+      wall-41
+
+         Condition                  Value             
+         ------------------------------------------
+         Thermal BC Type            Heat Flux         
+         Wall Motion                Stationary Wall   
+         Shear Boundary Condition   No Slip           
+
+      wall-40
+
+         Condition         Value       
+         ---------------------------
+         Thermal BC Type   Heat Flux   
+
+      wall-39
+
+         Condition         Value       
+         ---------------------------
+         Thermal BC Type   Heat Flux   
+
+      wall-38
+
+         Condition         Value       
+         ---------------------------
+         Thermal BC Type   Heat Flux   
+
+      wall-33
+
+         Condition         Value       
+         ---------------------------
+         Thermal BC Type   Heat Flux   
+
+      wall-32
+
+         Condition                  Value             
+         ------------------------------------------
+         Thermal BC Type            Heat Flux         
+         Wall Motion                Stationary Wall   
+         Shear Boundary Condition   No Slip           
+
+      wall-30
+
+         Condition         Value       
+         ---------------------------
+         Thermal BC Type   Heat Flux   
+
+      wall-29
+
+         Condition                  Value             
+         ------------------------------------------
+         Thermal BC Type            Heat Flux         
+         Wall Motion                Stationary Wall   
+         Shear Boundary Condition   No Slip           
+
+      symmetry
+
+         Condition   Value   
+         -----------------
+
+      inlet
+
+         Condition                  Value    
+         ---------------------------------
+         Velocity Magnitude [m/s]   2        
+         Temperature [K]            263.15   
+
+      outlet
+
+         Condition                        Value    
+         ---------------------------------------
+         Backflow Total Temperature [K]   263.15   
+
+      walls
+
+         Condition                                            Value         
+         ----------------------------------------------------------------
+         Thermal BC Type                                      Heat Flux     
+         Wall Motion                                          Moving Wall   
+         Shear Boundary Condition                             No Slip       
+         Define wall motion relative to adjacent cell zone?   yes           
+         Velocity Magnitude [m/s]                             2             
+
+      chamber-venturitube1-freeparts_cut-extrude3_2_
+
+         Condition         Value       
+         ---------------------------
+         Thermal BC Type   Heat Flux   
+
+      chamber-venturitube1-freeparts_cut-extrude3_3_
+
+         Condition         Value       
+         ---------------------------
+         Thermal BC Type   Heat Flux   
+
+      chamber-venturitube1-freeparts_cut-extrude3_1_
+
+         Condition         Value       
+         ---------------------------
+         Thermal BC Type   Heat Flux   
+
+      chamber-venturitube1-freeparts_cut-extrude3_4_
+
+         Condition         Value       
+         ---------------------------
+         Thermal BC Type   Heat Flux   
+
+      contact_region_4-src
+
+         Condition   Value     
+         -------------------
+                     wall-29   
+
+      chamber-contact_region_4-trg
+
+         Condition   Value     
+         -------------------
+                     wall-30   
+
+      contact_region_5-src
+
+         Condition   Value     
+         -------------------
+                     wall-32   
+
+      chamber-contact_region_5-trg
+
+         Condition   Value     
+         -------------------
+                     wall-33   
+
+      chamber-contact_region-contact_region_2-contact_region_2-contact_region_3-src-venturitube1-freeparts_cut-extrude3_2_
+
+         Condition   Value     
+         -------------------
+                     wall-39   
+
+      chamber-contact_region-contact_region_2-contact_region_2-contact_region_3-src-venturitube1-freeparts_cut-extrude3_3_
+
+         Condition   Value     
+         -------------------
+                     wall-38   
+
+      contact_region-contact_region_2-contact_region_2-contact_region_3-trg
+
+         Condition   Value     
+         -------------------
+                     wall-41   
+
+      chamber-contact_region-contact_region_2-contact_region_2-contact_region_3-trg
+
+         Condition   Value     
+         -------------------
+                     wall-40   
+
+</BoundaryConditions>
+
+<SolverSettings>
+Solver Settings
+---------------
+
+   Equations
+
+      Equation     Solved   
+      -------------------
+      Flow         yes      
+      Turbulence   yes      
+      Energy       yes      
+
+   Numerics
+
+      Numeric                         Enabled   
+      ---------------------------------------
+      Absolute Velocity Formulation   yes       
+
+   Under-Relaxation Factors
+
+      Variable                    Relaxation Factor   
+      ---------------------------------------------
+      Pressure                    0.3                 
+      Density                     1                   
+      Body Forces                 1                   
+      Momentum                    0.7                 
+      Turbulent Kinetic Energy    0.8                 
+      Specific Dissipation Rate   0.8                 
+      Intermittency               0.8                 
+      Momentum Thickness Re       0.8                 
+      Turbulent Viscosity         1                   
+      Energy                      1                   
+
+   Linear Solver
+
+      Variable                    Solver Type   Termination Criterion   Residual Reduction Tolerance   
+      ----------------------------------------------------------------------------------------------
+      Pressure                    V-Cycle       0.1                                                    
+      X-Momentum                  Flexible      0.1                     0.7                            
+      Y-Momentum                  Flexible      0.1                     0.7                            
+      Z-Momentum                  Flexible      0.1                     0.7                            
+      Turbulent Kinetic Energy    Flexible      0.1                     0.7                            
+      Specific Dissipation Rate   Flexible      0.1                     0.7                            
+      Intermittency               Flexible      0.1                     0.7                            
+      Momentum Thickness Re       Flexible      0.1                     0.7                            
+      Energy                      F-Cycle       0.1                                                    
+
+   Pressure-Velocity Coupling
+
+      Parameter             Value     
+      -----------------------------
+      Type                  SIMPLEC   
+      Skewness Correction   0         
+
+   Discretization Scheme
+
+      Variable                    Scheme                
+      -----------------------------------------------
+      Pressure                    Second Order          
+      Momentum                    Second Order Upwind   
+      Turbulent Kinetic Energy    Second Order Upwind   
+      Specific Dissipation Rate   Second Order Upwind   
+      Intermittency               Second Order Upwind   
+      Momentum Thickness Re       Second Order Upwind   
+      Energy                      Second Order Upwind   
+
+   Solution Limits
+
+      Quantity                                 Limit    
+      -----------------------------------------------
+      Minimum Absolute Pressure [Pa]           1        
+      Maximum Absolute Pressure [Pa]           5e+10    
+      Minimum Static Temperature [K]           1        
+      Maximum Static Temperature [K]           5000     
+      Minimum Turb. Kinetic Energy [m^2/s^2]   1e-14    
+      Minimum Spec. Dissipation Rate [s^-1]    1e-20    
+      Maximum Turb. Viscosity Ratio            100000   
+
+</SolverSettings>
+
+</FluentXMLReport>
