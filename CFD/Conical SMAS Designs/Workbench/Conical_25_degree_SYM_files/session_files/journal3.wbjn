@@ -1,0 +1,18 @@
+# encoding: utf-8
+# 2023 R2
+SetScriptVersion(Version="23.2.142")
+system1 = GetSystem(Name="FFF")
+solution1 = system1.GetContainer(ComponentName="Solution")
+solution1.Edit()
+setup1 = system1.GetContainer(ComponentName="Setup")
+setup1.SendCommand(Command='(cx-gui-do cx-activate-tab-index "NavigationPane*Frame1(TreeTab)" 0)(cx-gui-do cx-activate-tab-index "NavigationPane*Frame1(TreeTab)" 1)')
+setup1.SendCommand(Command='/file/set-tui-version "23.2"(cx-gui-do cx-activate-item "Information*OK")')
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "Run Calculation*Table1*Table6(Solution Advancement)*Table1*PushButton1(Calculate)")')
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "Information*OK")(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Results|Graphics|Vectors"))')
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Results|Graphics|Vectors"))(cx-gui-do cx-activate-item "NavigationPane*Frame2*Table1*List_Tree2")')
+setup1.SendCommand(Command="(cx-gui-do cx-set-list-tree-selections \"NavigationPane*Frame2*Table1*List_Tree2\" (list \"Results|Graphics|Vectors\"))(cx-gui-do cx-set-real-entry-list \"Vectors*Table1*Frame2*Frame3*RealEntry1(Scale)\" '( 3))(cx-gui-do cx-set-integer-entry \"Vectors*Table1*Frame2*Frame3*IntegerEntry2(Skip)\" 5)(cx-gui-do cx-activate-item \"Vectors*Table1*Frame2*Frame3*IntegerEntry2(Skip)\")")
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "Vectors*PanelButtons*PushButton1(OK)")')
+setup1.SendCommand(Command="(cx-gui-do cx-set-list-selections \"Vectors*Table1*Table3*Frame6*List2(Surfaces)\" '( 7))(cx-gui-do cx-activate-item \"Vectors*Table1*Table3*Frame6*List2(Surfaces)\")(cx-gui-do cx-activate-item \"Vectors*PanelButtons*PushButton1(OK)\")")
+setup1.SendCommand(Command="(cx-use-window-id 52)(cxg-clear-all-selections (cx-active-window))(cxg-add-surfaces-to-selection '() (cx-active-window))(cx-use-window-id 52)(build-popup-menu)(cx-use-window-id 52)(cx-use-window-id 52)(cx-use-window-id 52)(cx-use-window-id 52)(cx-set-camera-relative '(-2.43817e-06 -5.41835 -2.11429) '(0 0 0) '(-1.18925e-07 -0.264287 0.677293) 0 0)(cx-use-window-id 52)(cx-set-camera-relative '(-3.99901 9.09198 -0.0109925) '(0 0 0) '(0.849484 -0.641042 -0.158236) 0 0)(cx-gui-do cx-activate-item \"Vectors*PanelButtons*PushButton2(Cancel)\")")
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "MenuBar*FileMenu*Close Fluent")(cx-gui-do cx-activate-item "Settings have changed!*PanelButtons*PushButton1(OK)")')
+Save(Overwrite=True)

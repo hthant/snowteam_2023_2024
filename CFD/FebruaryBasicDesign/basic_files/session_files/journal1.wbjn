@@ -1,0 +1,998 @@
+# encoding: utf-8
+# 2023 R2
+SetScriptVersion(Version="23.2.142")
+template1 = GetTemplate(TemplateName="Fluid Flow")
+system1 = template1.CreateSystem()
+geometry1 = system1.GetContainer(ComponentName="Geometry")
+geometry1.SetFile(FilePath="//nasstore.engr.colostate.edu/students/UNGRAD/UE/lrickert/home/Senior Design - Snow/newdesignstraightupfullangle.STEP")
+meshComponent1 = system1.GetComponent(Name="Mesh")
+meshComponent1.Refresh()
+mesh1 = system1.GetContainer(ComponentName="Mesh")
+mesh1.Edit()
+mesh1.Exit()
+meshComponent1.Update(AllDependencies=True)
+setupComponent1 = system1.GetComponent(Name="Setup")
+setupComponent1.Refresh()
+setup1 = system1.GetContainer(ComponentName="Setup")
+fluentLauncherSettings1 = setup1.GetFluentLauncherSettings()
+fluentLauncherSettings1.SetEntityProperties(Properties=Set(Precision="Double", EnvPath={}, RunParallel=True, NumberOfProcessorsMeshing=4, NumberOfProcessors=4))
+setup1.Edit()
+setup1.SendCommand(Command='(cx-gui-do cx-activate-tab-index "NavigationPane*Frame1(TreeTab)" 0)(cx-gui-do cx-activate-tab-index "NavigationPane*Frame1(TreeTab)" 1)')
+setup1.SendCommand(Command="/file/set-tui-version \"23.2\"(cx-use-window-id 51)(cx-set-camera-relative '(-0.240984 -0.946633 -0.0424881) '(0 0 0) '(0.0315934 -0.00409907 0.0847973) 0 0)")
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "Ribbon*Frame1*Frame2(Domain)*Table1*Table3(Mesh)*PushButton4(Check)")')
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "MenuBar*PopupMenuCheck*Perform Mesh Check")')
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "Ribbon*Frame1*Frame2(Domain)*Table1*Table3(Mesh)*PushButton5(  Quality)")')
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "MenuBar*PopupMenuQuality*Evaluate Mesh Quality")')
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Setup|Models|Energy (Off)"))')
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Setup|Models|Energy (Off)"))(cx-gui-do cx-activate-item "NavigationPane*Frame2*Table1*List_Tree2")')
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Setup|Models|Energy (Off)"))(cx-gui-do cx-set-toggle-button2 "Energy*Table1(Energy)*ToggleBox1*CheckButton1(Energy Equation)" #t)(cx-gui-do cx-activate-item "Energy*Table1(Energy)*ToggleBox1*CheckButton1(Energy Equation)")(cx-gui-do cx-activate-item "Energy*PanelButtons*PushButton1(OK)")')
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Setup|Models|Viscous (SST k-omega)"))')
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Setup|Models|Viscous (SST k-omega)"))(cx-gui-do cx-activate-item "NavigationPane*Frame2*Table1*List_Tree2")')
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Setup|Models|Viscous (SST k-omega)"))(cx-gui-do cx-set-toggle-button2 "Viscous Model*Table1*ToggleBox1(Model)*Transition SST (4 eqn)" #t)(cx-gui-do cx-activate-item "Viscous Model*Table1*ToggleBox1(Model)*Transition SST (4 eqn)")(cx-gui-do cx-activate-item "Viscous Model*PanelButtons*PushButton1(OK)")')
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Setup|Models|Viscous (Transition SST (4 eqn))"))(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Setup|Materials|Fluid|air"))')
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Setup|Materials|Fluid|air"))(cx-gui-do cx-activate-item "NavigationPane*Frame2*Table1*List_Tree2")')
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Setup|Materials|Fluid|air"))(cx-gui-do cx-activate-item "Create/Edit Materials*PanelButtons*PushButton1(Close)")')
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Setup|Materials|Solid|aluminum"))')
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Setup|Materials|Solid|aluminum"))(cx-gui-do cx-activate-item "NavigationPane*Frame2*Table1*List_Tree2")')
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Setup|Materials|Solid|aluminum"))(cx-gui-do cx-activate-item "Create/Edit Materials*PanelButtons*PushButton1(Close)")')
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Setup|Cell Zone Conditions|Fluid|newdesignstraightupfullangle-freeparts_cut-extrude1_1_ (fluid, id=4)"))(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Setup|Cell Zone Conditions|Fluid|newdesignstraightupfullangle-freeparts_cut-extrude1_1_ (fluid, id=4)"))(cx-gui-do cx-list-tree-right-click "NavigationPane*Frame2*Table1*List_Tree2" )')
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "MenuBar*PopupMenuTree-newdesignstraightupfullangle-freeparts_cut-extrude1_1_ (fluid, id=4)*Display")')
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Setup|Cell Zone Conditions|Fluid|newdesignstraightupfullangle-freeparts_cut-extrude1_1_ (fluid, id=4)"))(cx-gui-do cx-list-tree-right-click "NavigationPane*Frame2*Table1*List_Tree2" )')
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "MenuBar*TypeSubMenu*solid")(cx-gui-do cx-activate-tab-index "Solid*Frame2*Table3*Frame1" 0)(cx-gui-do cx-activate-tab-index "Solid*Frame2*Table3*Frame1" 1)(cx-gui-do cx-activate-tab-index "Solid*Frame2*Table3*Frame1" 0)(cx-gui-do cx-activate-tab-index "Solid*Frame2*Table3*Frame1" 2)(cx-gui-do cx-activate-tab-index "Solid*Frame2*Table3*Frame1" 0)(cx-gui-do cx-activate-tab-index "Solid*Frame2*Table3*Frame1" 3)(cx-gui-do cx-activate-tab-index "Solid*Frame2*Table3*Frame1" 0)(cx-gui-do cx-activate-tab-index "Solid*Frame2*Table3*Frame1" 4)(cx-gui-do cx-activate-tab-index "Solid*Frame2*Table3*Frame1" 0)(cx-gui-do cx-activate-tab-index "Solid*Frame2*Table3*Frame1" 5)(cx-gui-do cx-activate-tab-index "Solid*Frame2*Table3*Frame1" 0)')
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Setup|Cell Zone Conditions|Solid|newdesignstraightupfullangle-freeparts_cut-extrude1_1_ (solid, id=4)"))(cx-gui-do cx-activate-item "Solid*PanelButtons*PushButton1(OK)")(cx-gui-do cx-enable-apply-button "Solid")')
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "Solid*PanelButtons*PushButton2(Cancel)")')
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Setup|Cell Zone Conditions|Fluid|newdesignstraightupfullangle-freeparts_cut-extrude1_2_ (fluid, id=5)"))(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Setup|Cell Zone Conditions|Fluid|newdesignstraightupfullangle-freeparts_cut-extrude1_2_ (fluid, id=5)"))(cx-gui-do cx-list-tree-right-click "NavigationPane*Frame2*Table1*List_Tree2" )')
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "MenuBar*PopupMenuTree-newdesignstraightupfullangle-freeparts_cut-extrude1_2_ (fluid, id=5)*Display")')
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Setup|Cell Zone Conditions|Fluid|newdesignstraightupfullangle-freeparts_cut-extrude1_2_ (fluid, id=5)"))(cx-gui-do cx-list-tree-right-click "NavigationPane*Frame2*Table1*List_Tree2" )')
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "MenuBar*TypeSubMenu*solid")(cx-gui-do cx-activate-tab-index "Solid*Frame2*Table3*Frame1" 0)(cx-gui-do cx-activate-tab-index "Solid*Frame2*Table3*Frame1" 1)(cx-gui-do cx-activate-tab-index "Solid*Frame2*Table3*Frame1" 0)(cx-gui-do cx-activate-tab-index "Solid*Frame2*Table3*Frame1" 2)(cx-gui-do cx-activate-tab-index "Solid*Frame2*Table3*Frame1" 0)(cx-gui-do cx-activate-tab-index "Solid*Frame2*Table3*Frame1" 3)(cx-gui-do cx-activate-tab-index "Solid*Frame2*Table3*Frame1" 0)(cx-gui-do cx-activate-tab-index "Solid*Frame2*Table3*Frame1" 4)(cx-gui-do cx-activate-tab-index "Solid*Frame2*Table3*Frame1" 0)(cx-gui-do cx-activate-tab-index "Solid*Frame2*Table3*Frame1" 5)(cx-gui-do cx-activate-tab-index "Solid*Frame2*Table3*Frame1" 0)')
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "Solid*PanelButtons*PushButton1(OK)")(cx-gui-do cx-enable-apply-button "Solid")')
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "Solid*PanelButtons*PushButton2(Cancel)")')
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Setup|Cell Zone Conditions|Fluid|newdesignstraightupfullangle-freeparts_cut-extrude1_3_ (fluid, id=6)"))(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Setup|Materials|Solid"))(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Setup|Cell Zone Conditions|Fluid|newdesignstraightupfullangle-freeparts_cut-extrude1_3_ (fluid, id=6)"))(cx-gui-do cx-list-tree-right-click "NavigationPane*Frame2*Table1*List_Tree2" )')
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "MenuBar*PopupMenuTree-newdesignstraightupfullangle-freeparts_cut-extrude1_3_ (fluid, id=6)*Display")')
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Setup|Cell Zone Conditions|Fluid|newdesignstraightupfullangle-freeparts_cut-extrude1_3_ (fluid, id=6)"))(cx-gui-do cx-list-tree-right-click "NavigationPane*Frame2*Table1*List_Tree2" )(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Setup|Materials|Solid|aluminum"))(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Setup|Boundary Conditions|Inlet|inlet (velocity-inlet, id=10)"))')
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Setup|Boundary Conditions|Inlet|inlet (velocity-inlet, id=10)"))(cx-gui-do cx-activate-item "NavigationPane*Frame2*Table1*List_Tree2")')
+setup1.SendCommand(Command="(cx-gui-do cx-set-list-tree-selections \"NavigationPane*Frame2*Table1*List_Tree2\" (list \"Setup|Boundary Conditions|Inlet|inlet (velocity-inlet, id=10)\"))(cx-gui-do cx-activate-tab-index \"Velocity Inlet*Frame2*Frame2\" 0)(cx-gui-do cx-activate-tab-index \"Velocity Inlet*Frame2*Frame2\" 1)(cx-gui-do cx-activate-tab-index \"Velocity Inlet*Frame2*Frame2\" 0)(cx-gui-do cx-activate-tab-index \"Velocity Inlet*Frame2*Frame2\" 2)(cx-gui-do cx-activate-tab-index \"Velocity Inlet*Frame2*Frame2\" 0)(cx-gui-do cx-activate-tab-index \"Velocity Inlet*Frame2*Frame2\" 3)(cx-gui-do cx-activate-tab-index \"Velocity Inlet*Frame2*Frame2\" 0)(cx-gui-do cx-activate-tab-index \"Velocity Inlet*Frame2*Frame2\" 4)(cx-gui-do cx-activate-tab-index \"Velocity Inlet*Frame2*Frame2\" 0)(cx-gui-do cx-activate-tab-index \"Velocity Inlet*Frame2*Frame2\" 5)(cx-gui-do cx-activate-tab-index \"Velocity Inlet*Frame2*Frame2\" 0)(cx-gui-do cx-activate-tab-index \"Velocity Inlet*Frame2*Frame2\" 6)(cx-gui-do cx-activate-tab-index \"Velocity Inlet*Frame2*Frame2\" 0)(cx-gui-do cx-activate-tab-index \"Velocity Inlet*Frame2*Frame2\" 7)(cx-gui-do cx-activate-tab-index \"Velocity Inlet*Frame2*Frame2\" 0)(cx-gui-do cx-activate-tab-index \"Velocity Inlet*Frame2*Frame2\" 8)(cx-gui-do cx-activate-tab-index \"Velocity Inlet*Frame2*Frame2\" 0)(cx-gui-do cx-enable-apply-button \"Velocity Inlet\")(cx-gui-do cx-set-expression-entry \"Velocity Inlet*Frame2*Frame2*Frame1(Momentum)*Table1*Table9*ExpressionEntry1(Velocity Magnitude)\" '(\"2\" . 0))(cx-gui-do cx-activate-tab-index \"Velocity Inlet*Frame2*Frame2\" 1)(cx-gui-do cx-set-expression-entry \"Velocity Inlet*Frame2*Frame2*Frame2(Thermal)*Table1*Table1*ExpressionEntry1(Temperature)\" '(\"263.15\" . 0))(cx-gui-do cx-set-expression-entry \"Velocity Inlet*Frame2*Frame2*Frame2(Thermal)*Table1*Table1*ExpressionEntry1(Temperature)\" '(\"263.15\" . 0))(cx-gui-do cx-activate-tab-index \"Velocity Inlet*Frame2*Frame2\" 0)(cx-gui-do cx-activate-item \"Velocity Inlet*PanelButtons*PushButton1(OK)\")")
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "Velocity Inlet*PanelButtons*PushButton2(Cancel)")')
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Setup|Boundary Conditions|Outlet|outlet (pressure-outlet, id=9)"))')
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Setup|Boundary Conditions|Outlet|outlet (pressure-outlet, id=9)"))(cx-gui-do cx-activate-item "NavigationPane*Frame2*Table1*List_Tree2")')
+setup1.SendCommand(Command="(cx-gui-do cx-set-list-tree-selections \"NavigationPane*Frame2*Table1*List_Tree2\" (list \"Setup|Boundary Conditions|Outlet|outlet (pressure-outlet, id=9)\"))(cx-gui-do cx-activate-tab-index \"Pressure Outlet*Frame2*Frame2\" 0)(cx-gui-do cx-activate-tab-index \"Pressure Outlet*Frame2*Frame2\" 1)(cx-gui-do cx-activate-tab-index \"Pressure Outlet*Frame2*Frame2\" 0)(cx-gui-do cx-activate-tab-index \"Pressure Outlet*Frame2*Frame2\" 2)(cx-gui-do cx-activate-tab-index \"Pressure Outlet*Frame2*Frame2\" 0)(cx-gui-do cx-activate-tab-index \"Pressure Outlet*Frame2*Frame2\" 3)(cx-gui-do cx-activate-tab-index \"Pressure Outlet*Frame2*Frame2\" 0)(cx-gui-do cx-activate-tab-index \"Pressure Outlet*Frame2*Frame2\" 4)(cx-gui-do cx-activate-tab-index \"Pressure Outlet*Frame2*Frame2\" 0)(cx-gui-do cx-activate-tab-index \"Pressure Outlet*Frame2*Frame2\" 5)(cx-gui-do cx-activate-tab-index \"Pressure Outlet*Frame2*Frame2\" 0)(cx-gui-do cx-activate-tab-index \"Pressure Outlet*Frame2*Frame2\" 6)(cx-gui-do cx-activate-tab-index \"Pressure Outlet*Frame2*Frame2\" 0)(cx-gui-do cx-activate-tab-index \"Pressure Outlet*Frame2*Frame2\" 7)(cx-gui-do cx-activate-tab-index \"Pressure Outlet*Frame2*Frame2\" 0)(cx-gui-do cx-activate-tab-index \"Pressure Outlet*Frame2*Frame2\" 8)(cx-gui-do cx-activate-tab-index \"Pressure Outlet*Frame2*Frame2\" 0)(cx-gui-do cx-activate-tab-index \"Pressure Outlet*Frame2*Frame2\" 1)(cx-gui-do cx-enable-apply-button \"Pressure Outlet\")(cx-gui-do cx-set-expression-entry \"Pressure Outlet*Frame2*Frame2*Frame2(Thermal)*Table1*Table1*ExpressionEntry1(Backflow Total Temperature)\" '(\"263.15\" . 0))(cx-gui-do cx-set-expression-entry \"Pressure Outlet*Frame2*Frame2*Frame2(Thermal)*Table1*Table1*ExpressionEntry1(Backflow Total Temperature)\" '(\"263.15\" . 0))(cx-gui-do cx-activate-item \"Pressure Outlet*PanelButtons*PushButton1(OK)\")")
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "Pressure Outlet*PanelButtons*PushButton2(Cancel)")')
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "General*Table1*ButtonBox1(Mesh)*PushButton2(Display)")')
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "Mesh Display*PanelButtons*PushButton1(OK)")')
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "Mesh Display*PanelButtons*PushButton2(Cancel)")')
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Setup|Boundary Conditions|Wall|walls (wall, id=12)"))')
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Setup|Boundary Conditions|Wall|walls (wall, id=12)"))(cx-gui-do cx-activate-item "NavigationPane*Frame2*Table1*List_Tree2")')
+setup1.SendCommand(Command="(cx-gui-do cx-set-list-tree-selections \"NavigationPane*Frame2*Table1*List_Tree2\" (list \"Setup|Boundary Conditions|Wall|walls (wall, id=12)\"))(cx-gui-do cx-activate-tab-index \"Wall*Frame4\" 0)(cx-gui-do cx-activate-tab-index \"Wall*Frame4\" 1)(cx-gui-do cx-activate-tab-index \"Wall*Frame4\" 0)(cx-gui-do cx-activate-tab-index \"Wall*Frame4\" 2)(cx-gui-do cx-activate-tab-index \"Wall*Frame4\" 0)(cx-gui-do cx-activate-tab-index \"Wall*Frame4\" 3)(cx-gui-do cx-activate-tab-index \"Wall*Frame4\" 0)(cx-gui-do cx-activate-tab-index \"Wall*Frame4\" 4)(cx-gui-do cx-activate-tab-index \"Wall*Frame4\" 0)(cx-gui-do cx-activate-tab-index \"Wall*Frame4\" 5)(cx-gui-do cx-activate-tab-index \"Wall*Frame4\" 0)(cx-gui-do cx-activate-tab-index \"Wall*Frame4\" 6)(cx-gui-do cx-activate-tab-index \"Wall*Frame4\" 0)(cx-gui-do cx-activate-tab-index \"Wall*Frame4\" 7)(cx-gui-do cx-activate-tab-index \"Wall*Frame4\" 0)(cx-gui-do cx-activate-tab-index \"Wall*Frame4\" 8)(cx-gui-do cx-activate-tab-index \"Wall*Frame4\" 0)(cx-gui-do cx-activate-tab-index \"Wall*Frame4\" 9)(cx-gui-do cx-activate-tab-index \"Wall*Frame4\" 0)(cx-gui-do cx-activate-tab-index \"Wall*Frame4\" 10)(cx-gui-do cx-activate-tab-index \"Wall*Frame4\" 0)(cx-gui-do cx-activate-tab-index \"Wall*Frame4*Frame8(Wall Film)*Frame1*Frame2\" 0)(cx-gui-do cx-activate-tab-index \"Wall*Frame4*Frame8(Wall Film)*Frame1*Frame2\" 1)(cx-gui-do cx-activate-tab-index \"Wall*Frame4*Frame8(Wall Film)*Frame1*Frame2\" 0)(cx-gui-do cx-activate-tab-index \"Wall*Frame4*Frame8(Wall Film)*Frame1*Frame2\" 2)(cx-gui-do cx-activate-tab-index \"Wall*Frame4*Frame8(Wall Film)*Frame1*Frame2\" 0)(cx-gui-do cx-activate-tab-index \"Wall*Frame4*Frame8(Wall Film)*Frame1*Frame2\" 3)(cx-gui-do cx-activate-tab-index \"Wall*Frame4*Frame8(Wall Film)*Frame1*Frame2\" 0)(cx-gui-do cx-activate-tab-index \"Wall*Frame4*Frame8(Wall Film)*Frame1*Frame2\" 4)(cx-gui-do cx-activate-tab-index \"Wall*Frame4*Frame8(Wall Film)*Frame1*Frame2\" 0)(cx-gui-do cx-activate-tab-index \"Wall*Frame4*Frame8(Wall Film)*Frame1*Frame2\" 5)(cx-gui-do cx-activate-tab-index \"Wall*Frame4*Frame8(Wall Film)*Frame1*Frame2\" 0)(cx-gui-do cx-enable-apply-button \"Wall\")(cx-gui-do cx-set-toggle-button2 \"Wall*Frame4*Frame1(Momentum)*Table1*Frame1*Frame1*Table1*ToggleBox1(Wall Motion)*Moving Wall\" #t)(cx-gui-do cx-activate-item \"Wall*Frame4*Frame1(Momentum)*Table1*Frame1*Frame1*Table1*ToggleBox1(Wall Motion)*Moving Wall\")(cx-gui-do cx-set-expression-entry \"Wall*Frame4*Frame1(Momentum)*Table1*Frame1*Frame1*Table1*Table2(Motion)*Table2*Table1*ExpressionEntry1(Speed)\" '(\"2\" . 0))(cx-gui-do cx-activate-item \"Wall*PanelButtons*PushButton1(OK)\")")
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "Wall*PanelButtons*PushButton2(Cancel)")')
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Solution|Methods"))')
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Solution|Methods"))(cx-gui-do cx-activate-item "NavigationPane*Frame2*Table1*List_Tree2")')
+setup1.SendCommand(Command="(cx-gui-do cx-set-list-tree-selections \"NavigationPane*Frame2*Table1*List_Tree2\" (list \"Solution|Methods\"))(cx-gui-do cx-set-list-selections \"Solution Methods*Table1*Table2(Pressure-Velocity Coupling)*DropDownList1(Scheme)\" '( 1))")
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "Solution Methods*Table1*Table2(Pressure-Velocity Coupling)*DropDownList1(Scheme)")')
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Solution|Report Definitions"))')
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Solution|Report Definitions"))(cx-gui-do cx-activate-item "NavigationPane*Frame2*Table1*List_Tree2")')
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Solution|Report Definitions"))')
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "Report Definitions*Table1*ButtonBox3*PushButton1(New)")')
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "MenuBar*Force ReportSubMenu*Force...")')
+setup1.SendCommand(Command="(cx-gui-do cx-set-list-selections \"Force Report Definition*Table1*Table2*List2(Zones)\" '( 1))(cx-gui-do cx-activate-item \"Force Report Definition*Table1*Table2*List2(Zones)\")(cx-gui-do cx-set-list-selections \"Force Report Definition*Table1*Table2*List2(Zones)\" '( 0 1))(cx-gui-do cx-activate-item \"Force Report Definition*Table1*Table2*List2(Zones)\")(cx-gui-do cx-activate-item \"Force Report Definition*PanelButtons*PushButton1(OK)\")")
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "Report Definitions*Table1*ButtonBox3*PushButton1(New)")')
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "MenuBar*Flux ReportSubMenu*Mass Flow Rate...")')
+setup1.SendCommand(Command="(cx-gui-do cx-set-list-selections \"Flux Report Definition*Table2*Table2*List2(Boundaries)\" '( 6))(cx-gui-do cx-activate-item \"Flux Report Definition*Table2*Table2*List2(Boundaries)\")(cx-gui-do cx-set-list-selections \"Flux Report Definition*Table2*Table2*List2(Boundaries)\" '( 6 11))(cx-gui-do cx-activate-item \"Flux Report Definition*Table2*Table2*List2(Boundaries)\")(cx-gui-do cx-activate-item \"Flux Report Definition*PanelButtons*PushButton1(OK)\")")
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "Report Definitions*PanelButtons*PushButton1(Close)")')
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Solution|Initialization"))')
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Solution|Initialization"))(cx-gui-do cx-activate-item "NavigationPane*Frame2*Table1*List_Tree2")')
+setup1.SendCommand(Command="(cx-gui-do cx-set-list-tree-selections \"NavigationPane*Frame2*Table1*List_Tree2\" (list \"Solution|Initialization\"))(cx-gui-do cx-set-toggle-button2 \"Solution Initialization*Table1*ToggleBox3(Initialization Methods)*Standard Initialization\" #t)(cx-gui-do cx-activate-item \"Solution Initialization*Table1*ToggleBox3(Initialization Methods)*Standard Initialization\")(cx-gui-do cx-set-real-entry-list \"Solution Initialization*Table1*Table7(Initial Values)*RealEntry2(X Velocity)\" '( 2))(cx-gui-do cx-activate-item \"Solution Initialization*Table1*Table7(Initial Values)*RealEntry2(X Velocity)\")")
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "Solution Initialization*Table1*Frame9*PushButton1(Initialize)")')
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Solution|Run Calculation"))')
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Solution|Run Calculation"))(cx-gui-do cx-activate-item "NavigationPane*Frame2*Table1*List_Tree2")')
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Solution|Run Calculation"))(cx-gui-do cx-set-integer-entry "Run Calculation*Table1*Table3(Parameters)*Table1*Table1*IntegerEntry1(Number of Iterations)" 500)(cx-gui-do cx-activate-item "Run Calculation*Table1*Table3(Parameters)*Table1*Table1*IntegerEntry1(Number of Iterations)")')
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Solution|Report Definitions"))')
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Solution|Report Definitions"))(cx-gui-do cx-activate-item "NavigationPane*Frame2*Table1*List_Tree2")')
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Solution|Report Definitions"))(cx-gui-do cx-activate-item "Report Definitions*PanelButtons*PushButton1(Close)")')
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Solution|Cell Registers"))')
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Solution|Cell Registers"))(cx-gui-do cx-activate-item "NavigationPane*Frame2*Table1*List_Tree2")')
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Solution|Cell Registers"))(cx-gui-do cx-activate-item "Manage Cell Registers*PanelButtons*PushButton1(Close)")')
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Solution|Monitors|Residual"))')
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Solution|Monitors|Residual"))(cx-gui-do cx-activate-item "NavigationPane*Frame2*Table1*List_Tree2")')
+setup1.SendCommand(Command="(cx-gui-do cx-set-list-tree-selections \"NavigationPane*Frame2*Table1*List_Tree2\" (list \"Solution|Monitors|Residual\"))(cx-gui-do cx-set-real-entry-list \"Residual Monitors*Table1*Table2*Table1*Table1(Equations)*RealEntry11\" '( 0.0001))(cx-gui-do cx-set-real-entry-list \"Residual Monitors*Table1*Table2*Table1*Table1(Equations)*RealEntry17\" '( 0.0001))(cx-gui-do cx-set-real-entry-list \"Residual Monitors*Table1*Table2*Table1*Table1(Equations)*RealEntry23\" '( 0.0001))(cx-gui-do cx-set-real-entry-list \"Residual Monitors*Table1*Table2*Table1*Table1(Equations)*RealEntry29\" '( 0.0001))(cx-gui-do cx-set-real-entry-list \"Residual Monitors*Table1*Table2*Table1*Table1(Equations)*RealEntry41\" '( 0.0001))(cx-gui-do cx-set-real-entry-list \"Residual Monitors*Table1*Table2*Table1*Table1(Equations)*RealEntry47\" '( 0.0001))(cx-gui-do cx-set-real-entry-list \"Residual Monitors*Table1*Table2*Table1*Table1(Equations)*RealEntry53\" '( 0.0001))(cx-gui-do cx-set-real-entry-list \"Residual Monitors*Table1*Table2*Table1*Table1(Equations)*RealEntry59\" '( 0.0001))(cx-gui-do cx-activate-item \"Residual Monitors*PanelButtons*PushButton1(OK)\")")
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "Run Calculation*Table1*Table6(Solution Advancement)*Table1*PushButton1(Calculate)")')
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "Information*OK")(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Results|Graphics|Vectors"))')
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Results|Graphics|Vectors"))(cx-gui-do cx-activate-item "NavigationPane*Frame2*Table1*List_Tree2")')
+setup1.SendCommand(Command="(cx-gui-do cx-set-list-tree-selections \"NavigationPane*Frame2*Table1*List_Tree2\" (list \"Results|Graphics|Vectors\"))(cx-gui-do cx-set-list-selections \"Vectors*Table1*Table3*Frame6*List2(Surfaces)\" '( 9))(cx-gui-do cx-activate-item \"Vectors*Table1*Table3*Frame6*List2(Surfaces)\")(cx-gui-do cx-activate-item \"Vectors*PanelButtons*PushButton1(OK)\")")
+setup1.SendCommand(Command="(cx-gui-do cx-set-list-selections \"Vectors*Table1*Table3*Frame6*List2(Surfaces)\" '( 0 9))(cx-gui-do cx-activate-item \"Vectors*Table1*Table3*Frame6*List2(Surfaces)\")(cx-gui-do cx-set-list-selections \"Vectors*Table1*Table3*Frame6*List2(Surfaces)\" '( 0 1 9))(cx-gui-do cx-activate-item \"Vectors*Table1*Table3*Frame6*List2(Surfaces)\")(cx-gui-do cx-set-list-selections \"Vectors*Table1*Table3*Frame6*List2(Surfaces)\" '( 0 1 2 9))(cx-gui-do cx-activate-item \"Vectors*Table1*Table3*Frame6*List2(Surfaces)\")(cx-gui-do cx-set-list-selections \"Vectors*Table1*Table3*Frame6*List2(Surfaces)\" '( 0 1 2 5 9))(cx-gui-do cx-activate-item \"Vectors*Table1*Table3*Frame6*List2(Surfaces)\")(cx-gui-do cx-activate-item \"Vectors*PanelButtons*PushButton1(OK)\")")
+setup1.SendCommand(Command="(cx-gui-do cx-set-list-selections \"Vectors*Table1*Table3*Frame6*List2(Surfaces)\" '( 0 1 2 9))(cx-gui-do cx-activate-item \"Vectors*Table1*Table3*Frame6*List2(Surfaces)\")(cx-gui-do cx-activate-item \"Vectors*PanelButtons*PushButton1(OK)\")")
+setup1.SendCommand(Command="(cx-gui-do cx-set-real-entry-list \"Vectors*Table1*Frame2*Frame3*RealEntry1(Scale)\" '( 3))(cx-gui-do cx-activate-item \"Vectors*PanelButtons*PushButton1(OK)\")")
+setup1.SendCommand(Command="(cx-gui-do cx-set-list-selections \"Vectors*Table1*Table3*Frame6*List2(Surfaces)\" '( 0 1 2))(cx-gui-do cx-activate-item \"Vectors*Table1*Table3*Frame6*List2(Surfaces)\")(cx-gui-do cx-set-list-selections \"Vectors*Table1*Table3*Frame6*List2(Surfaces)\" '( 0 1 2))(cx-gui-do cx-activate-item \"Vectors*Table1*Table3*Frame6*List2(Surfaces)\")(cx-gui-do cx-set-list-selections \"Vectors*Table1*Table3*Frame6*List2(Surfaces)\" '( 0 1 2))(cx-gui-do cx-activate-item \"Vectors*Table1*Table3*Frame6*List2(Surfaces)\")(cx-gui-do cx-activate-item \"Vectors*PanelButtons*PushButton1(OK)\")")
+setup1.SendCommand(Command="(cx-gui-do cx-set-list-selections \"Vectors*Table1*Table3*Frame6*List2(Surfaces)\" '( 0 1 2 9))(cx-gui-do cx-activate-item \"Vectors*Table1*Table3*Frame6*List2(Surfaces)\")(cx-gui-do cx-activate-item \"Vectors*PanelButtons*PushButton1(OK)\")")
+setup1.SendCommand(Command="(cx-gui-do cx-set-list-selections \"Vectors*Table1*Table3*Frame6*List2(Surfaces)\" '( 0 2 9))(cx-gui-do cx-activate-item \"Vectors*Table1*Table3*Frame6*List2(Surfaces)\")(cx-gui-do cx-activate-item \"Vectors*PanelButtons*PushButton1(OK)\")")
+setup1.SendCommand(Command="(cx-gui-do cx-set-list-selections \"Vectors*Table1*Table3*Frame6*List2(Surfaces)\" '( 0 9))(cx-gui-do cx-activate-item \"Vectors*Table1*Table3*Frame6*List2(Surfaces)\")(cx-gui-do cx-activate-item \"Vectors*PanelButtons*PushButton1(OK)\")")
+setup1.SendCommand(Command="(cx-gui-do cx-set-list-selections \"Vectors*Table1*Table3*Frame6*List2(Surfaces)\" '( 9))(cx-gui-do cx-activate-item \"Vectors*Table1*Table3*Frame6*List2(Surfaces)\")(cx-gui-do cx-activate-item \"Vectors*PanelButtons*PushButton1(OK)\")")
+setup1.SendCommand(Command="(cx-gui-do cx-set-list-selections \"Vectors*Table1*Table3*Frame6*List2(Surfaces)\" '())(cx-gui-do cx-activate-item \"Vectors*Table1*Table3*Frame6*List2(Surfaces)\")(cx-gui-do cx-set-list-selections \"Vectors*Table1*Table3*Frame6*List2(Surfaces)\" '( 1))(cx-gui-do cx-activate-item \"Vectors*Table1*Table3*Frame6*List2(Surfaces)\")(cx-gui-do cx-set-list-selections \"Vectors*Table1*Table3*Frame6*List2(Surfaces)\" '( 0 1))(cx-gui-do cx-activate-item \"Vectors*Table1*Table3*Frame6*List2(Surfaces)\")(cx-gui-do cx-set-list-selections \"Vectors*Table1*Table3*Frame6*List2(Surfaces)\" '( 0 1 5))(cx-gui-do cx-activate-item \"Vectors*Table1*Table3*Frame6*List2(Surfaces)\")(cx-gui-do cx-activate-item \"Vectors*PanelButtons*PushButton1(OK)\")")
+setup1.SendCommand(Command="(cx-gui-do cx-set-list-selections \"Vectors*Table1*Table3*Frame6*List2(Surfaces)\" '( 1 5))(cx-gui-do cx-activate-item \"Vectors*Table1*Table3*Frame6*List2(Surfaces)\")(cx-gui-do cx-activate-item \"Vectors*PanelButtons*PushButton1(OK)\")")
+setup1.SendCommand(Command="(cx-gui-do cx-set-list-selections \"Vectors*Table1*Table3*Frame6*List2(Surfaces)\" '( 0 1 5))(cx-gui-do cx-activate-item \"Vectors*Table1*Table3*Frame6*List2(Surfaces)\")(cx-gui-do cx-activate-item \"Vectors*PanelButtons*PushButton1(OK)\")")
+setup1.SendCommand(Command="(cx-gui-do cx-set-list-selections \"Vectors*Table1*Table3*Frame6*List2(Surfaces)\" '( 0 5))(cx-gui-do cx-activate-item \"Vectors*Table1*Table3*Frame6*List2(Surfaces)\")(cx-gui-do cx-activate-item \"Vectors*PanelButtons*PushButton1(OK)\")")
+setup1.SendCommand(Command="(cx-gui-do cx-set-list-selections \"Vectors*Table1*Table3*Frame6*List2(Surfaces)\" '( 5))(cx-gui-do cx-activate-item \"Vectors*Table1*Table3*Frame6*List2(Surfaces)\")(cx-gui-do cx-activate-item \"Vectors*PanelButtons*PushButton1(OK)\")")
+setup1.SendCommand(Command="(cx-use-window-id 51)(cx-set-camera-relative '(1.13248 0.154353 -0.257104) '(0 0 0) '(0.0382436 0.00153506 -0.100829) 0 0)(cx-gui-do cx-set-list-selections \"Vectors*Table1*Table3*Frame6*List2(Surfaces)\" '( 5 9))(cx-gui-do cx-activate-item \"Vectors*Table1*Table3*Frame6*List2(Surfaces)\")(cx-gui-do cx-activate-item \"Vectors*PanelButtons*PushButton1(OK)\")")
+setup1.SendCommand(Command="(cx-use-window-id 51)(cx-set-camera-relative '(-1.12073 0.0827331 0.265277) '(0 0 0) '(0 0 0) 0 0)(cx-use-window-id 51)(cx-set-camera-relative '(-0.0624411 -0.549687 -0.035315) '(0 0 0) '(0.0141951 -0.0110914 0.157747) 0 0)(cx-use-window-id 51)(cx-set-camera-relative '(-0.203749 -0.0445874 -0.0255567) '(0 0 0) '(-0.0426566 -0.002002 0.0296972) 0 0)(cx-gui-do cx-activate-item \"Vectors*PanelButtons*PushButton2(Cancel)\")")
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "MenuBar*FileMenu*Save Project")(cx-gui-do cx-activate-item "Settings have changed!*PanelButtons*PushButton1(OK)")')
+Save(Overwrite=True)
+results1 = system1.GetContainer(ComponentName="Results")
+results1.Edit()
+results1.SendCommand(Command="""VIEW:View 1
+  Camera Mode = User Specified
+  CAMERA:
+    Option = Pivot Point and Quaternion
+    Pivot Point = 0, 0, -0.75
+    Scale = 0.424154
+    Pan = 0, 0
+    Rotation Quaternion = 0.0817999, -0.078675, 0.0276802, 0.993152
+    
+  END
+
+END
+
+> update
+> autolegend plot=/VECTOR:Vector 1, view=VIEW:View 1""")
+results1.SendCommand(Command=""">highlight regionlist=/DATA READER/CASE:Case FFF/BOUNDARY:chamber newdesignstraightupfullangle freeparts_cut extrude1_2_, domainlist=/DATA READER/CASE:Case FFF/DOMAIN:newdesignstraightupfullangle freeparts_cut extrude1_1_
+>highlight regionlist=/DATA READER/CASE:Case FFF/BOUNDARY:chamber newdesignstraightupfullangle freeparts_cut extrude1_2_, domainlist=/DATA READER/CASE:Case FFF/DOMAIN:newdesignstraightupfullangle freeparts_cut extrude1_3_""")
+results1.SendCommand(Command=""">highlight regionlist=/DATA READER/CASE:Case FFF/BOUNDARY:contact_region contact_region_2 contact_region_2 contact_region_3 src, domainlist=/DATA READER/CASE:Case FFF/DOMAIN:newdesignstraightupfullangle freeparts_cut extrude1_1_
+>highlight regionlist=/DATA READER/CASE:Case FFF/BOUNDARY:contact_region contact_region_2 contact_region_2 contact_region_3 src, domainlist=/DATA READER/CASE:Case FFF/DOMAIN:newdesignstraightupfullangle freeparts_cut extrude1_2_""")
+results1.SendCommand(Command=""">highlight regionlist=/DATA READER/CASE:Case FFF/BOUNDARY:inlet, domainlist=/DATA READER/CASE:Case FFF/DOMAIN:newdesignstraightupfullangle freeparts_cut extrude1_1_
+>highlight regionlist=/DATA READER/CASE:Case FFF/BOUNDARY:inlet, domainlist=/DATA READER/CASE:Case FFF/DOMAIN:newdesignstraightupfullangle freeparts_cut extrude1_2_""")
+results1.SendCommand(Command=""">highlight regionlist=/DATA READER/CASE:Case FFF/BOUNDARY:outlet, domainlist=/DATA READER/CASE:Case FFF/DOMAIN:newdesignstraightupfullangle freeparts_cut extrude1_1_
+>highlight regionlist=/DATA READER/CASE:Case FFF/BOUNDARY:outlet, domainlist=/DATA READER/CASE:Case FFF/DOMAIN:newdesignstraightupfullangle freeparts_cut extrude1_2_""")
+results1.SendCommand(Command=""">highlight regionlist=/DATA READER/CASE:Case FFF/BOUNDARY:symmetry, domainlist=/DATA READER/CASE:Case FFF/DOMAIN:newdesignstraightupfullangle freeparts_cut extrude1_1_
+>highlight regionlist=/DATA READER/CASE:Case FFF/BOUNDARY:symmetry, domainlist=/DATA READER/CASE:Case FFF/DOMAIN:newdesignstraightupfullangle freeparts_cut extrude1_2_""")
+results1.SendCommand(Command=""">highlight regionlist=/DATA READER/CASE:Case FFF/BOUNDARY:symmetry, domainlist=/DATA READER/CASE:Case FFF/DOMAIN:newdesignstraightupfullangle freeparts_cut extrude1_1_
+>highlight regionlist=/DATA READER/CASE:Case FFF/BOUNDARY:symmetry, domainlist=/DATA READER/CASE:Case FFF/DOMAIN:newdesignstraightupfullangle freeparts_cut extrude1_2_""")
+results1.SendCommand(Command=""">highlight regionlist=/DATA READER/CASE:Case FFF/BOUNDARY:symmetry, domainlist=/DATA READER/CASE:Case FFF/DOMAIN:newdesignstraightupfullangle freeparts_cut extrude1_1_
+>highlight regionlist=/DATA READER/CASE:Case FFF/BOUNDARY:symmetry, domainlist=/DATA READER/CASE:Case FFF/DOMAIN:newdesignstraightupfullangle freeparts_cut extrude1_2_""")
+results1.SendCommand(Command=""">highlight regionlist=/DATA READER/CASE:Case FFF/BOUNDARY:symmetry, domainlist=/DATA READER/CASE:Case FFF/DOMAIN:newdesignstraightupfullangle freeparts_cut extrude1_1_
+>highlight regionlist=/DATA READER/CASE:Case FFF/BOUNDARY:symmetry, domainlist=/DATA READER/CASE:Case FFF/DOMAIN:newdesignstraightupfullangle freeparts_cut extrude1_2_""")
+results1.SendCommand(Command=""">highlight regionlist=/DATA READER/CASE:Case FFF/BOUNDARY:symmetry, domainlist=/DATA READER/CASE:Case FFF/DOMAIN:newdesignstraightupfullangle freeparts_cut extrude1_1_
+>highlight regionlist=/DATA READER/CASE:Case FFF/BOUNDARY:symmetry, domainlist=/DATA READER/CASE:Case FFF/DOMAIN:newdesignstraightupfullangle freeparts_cut extrude1_2_""")
+results1.SendCommand(Command=""">highlight regionlist=/DATA READER/CASE:Case FFF/BOUNDARY:chamber newdesignstraightupfullangle freeparts_cut extrude1_2_, domainlist=/DATA READER/CASE:Case FFF/DOMAIN:newdesignstraightupfullangle freeparts_cut extrude1_1_
+>highlight regionlist=/DATA READER/CASE:Case FFF/BOUNDARY:chamber newdesignstraightupfullangle freeparts_cut extrude1_2_, domainlist=/DATA READER/CASE:Case FFF/DOMAIN:newdesignstraightupfullangle freeparts_cut extrude1_3_""")
+results1.SendCommand(Command=""">highlight regionlist=/DATA READER/CASE:Case FFF/BOUNDARY:chamber newdesignstraightupfullangle freeparts_cut extrude1_2_, domainlist=/DATA READER/CASE:Case FFF/DOMAIN:newdesignstraightupfullangle freeparts_cut extrude1_1_
+>highlight regionlist=/DATA READER/CASE:Case FFF/BOUNDARY:chamber newdesignstraightupfullangle freeparts_cut extrude1_2_, domainlist=/DATA READER/CASE:Case FFF/DOMAIN:newdesignstraightupfullangle freeparts_cut extrude1_3_""")
+results1.SendCommand(Command=""">highlight regionlist=/DATA READER/CASE:Case FFF/BOUNDARY:chamber newdesignstraightupfullangle freeparts_cut extrude1_2_, domainlist=/DATA READER/CASE:Case FFF/DOMAIN:newdesignstraightupfullangle freeparts_cut extrude1_1_
+>highlight regionlist=/DATA READER/CASE:Case FFF/BOUNDARY:chamber newdesignstraightupfullangle freeparts_cut extrude1_2_, domainlist=/DATA READER/CASE:Case FFF/DOMAIN:newdesignstraightupfullangle freeparts_cut extrude1_3_""")
+results1.SendCommand(Command=""">highlight regionlist=/DATA READER/CASE:Case FFF/BOUNDARY:chamber newdesignstraightupfullangle freeparts_cut extrude1_2_, domainlist=/DATA READER/CASE:Case FFF/DOMAIN:newdesignstraightupfullangle freeparts_cut extrude1_1_
+>highlight regionlist=/DATA READER/CASE:Case FFF/BOUNDARY:chamber newdesignstraightupfullangle freeparts_cut extrude1_2_, domainlist=/DATA READER/CASE:Case FFF/DOMAIN:newdesignstraightupfullangle freeparts_cut extrude1_3_""")
+results1.SendCommand(Command=""">highlight regionlist=/DATA READER/CASE:Case FFF/BOUNDARY:chamber newdesignstraightupfullangle freeparts_cut extrude1_2_, domainlist=/DATA READER/CASE:Case FFF/DOMAIN:newdesignstraightupfullangle freeparts_cut extrude1_1_
+>highlight regionlist=/DATA READER/CASE:Case FFF/BOUNDARY:chamber newdesignstraightupfullangle freeparts_cut extrude1_2_, domainlist=/DATA READER/CASE:Case FFF/DOMAIN:newdesignstraightupfullangle freeparts_cut extrude1_3_""")
+results1.SendCommand(Command=""">highlight regionlist=/DATA READER/CASE:Case FFF/BOUNDARY:contact_region contact_region_2 contact_region_2 contact_region_3 src, domainlist=/DATA READER/CASE:Case FFF/DOMAIN:newdesignstraightupfullangle freeparts_cut extrude1_1_
+>highlight regionlist=/DATA READER/CASE:Case FFF/BOUNDARY:contact_region contact_region_2 contact_region_2 contact_region_3 src, domainlist=/DATA READER/CASE:Case FFF/DOMAIN:newdesignstraightupfullangle freeparts_cut extrude1_2_""")
+results1.SendCommand(Command=""">highlight regionlist=/DATA READER/CASE:Case FFF/BOUNDARY:symmetry, domainlist=/DATA READER/CASE:Case FFF/DOMAIN:newdesignstraightupfullangle freeparts_cut extrude1_1_
+>highlight regionlist=/DATA READER/CASE:Case FFF/BOUNDARY:symmetry, domainlist=/DATA READER/CASE:Case FFF/DOMAIN:newdesignstraightupfullangle freeparts_cut extrude1_2_""")
+results1.SendCommand(Command=""">highlight regionlist=/DATA READER/CASE:Case FFF/BOUNDARY:contact_region contact_region_2 contact_region_2 contact_region_3 src, domainlist=/DATA READER/CASE:Case FFF/DOMAIN:newdesignstraightupfullangle freeparts_cut extrude1_1_
+>highlight regionlist=/DATA READER/CASE:Case FFF/BOUNDARY:contact_region contact_region_2 contact_region_2 contact_region_3 src, domainlist=/DATA READER/CASE:Case FFF/DOMAIN:newdesignstraightupfullangle freeparts_cut extrude1_2_""")
+results1.SendCommand(Command=""">highlight regionlist=/DATA READER/CASE:Case FFF/BOUNDARY:contact_region contact_region_2 contact_region_2 contact_region_3 src, domainlist=/DATA READER/CASE:Case FFF/DOMAIN:newdesignstraightupfullangle freeparts_cut extrude1_1_
+>highlight regionlist=/DATA READER/CASE:Case FFF/BOUNDARY:contact_region contact_region_2 contact_region_2 contact_region_3 src, domainlist=/DATA READER/CASE:Case FFF/DOMAIN:newdesignstraightupfullangle freeparts_cut extrude1_2_""")
+results1.SendCommand(Command=""">highlight regionlist=/DATA READER/CASE:Case FFF/BOUNDARY:contact_region contact_region_2 contact_region_2 contact_region_3 src, domainlist=/DATA READER/CASE:Case FFF/DOMAIN:newdesignstraightupfullangle freeparts_cut extrude1_1_
+>highlight regionlist=/DATA READER/CASE:Case FFF/BOUNDARY:contact_region contact_region_2 contact_region_2 contact_region_3 src, domainlist=/DATA READER/CASE:Case FFF/DOMAIN:newdesignstraightupfullangle freeparts_cut extrude1_2_""")
+results1.SendCommand(Command=""">highlight regionlist=/DATA READER/CASE:Case FFF/BOUNDARY:contact_region contact_region_2 contact_region_2 contact_region_3 src, domainlist=/DATA READER/CASE:Case FFF/DOMAIN:newdesignstraightupfullangle freeparts_cut extrude1_1_
+>highlight regionlist=/DATA READER/CASE:Case FFF/BOUNDARY:contact_region contact_region_2 contact_region_2 contact_region_3 src, domainlist=/DATA READER/CASE:Case FFF/DOMAIN:newdesignstraightupfullangle freeparts_cut extrude1_2_""")
+results1.SendCommand(Command="""VECTOR:Vector 1
+Apply Instancing Transform = On
+Colour = 0.75, 0.75, 0.75
+Colour Map = Default Colour Map
+Colour Mode = Use Plot Variable
+Colour Scale = Linear
+Colour Variable = Velocity
+Colour Variable Boundary Values = Conservative
+Coord Frame = Global
+Culling Mode = No Culling
+Direction = X
+Domain List = /DOMAIN GROUP:All Domains
+Draw Faces = On
+Draw Lines = Off
+Instancing Transform = /DEFAULT INSTANCE TRANSFORM:Default Transform
+Lighting = On
+Line Width = 1
+Location List = contact_region contact_region_2 contact_region_2 contact_region_3 src
+Locator Sampling Method = Vertex
+Max = 0.0 [m s^-1]
+Maximum Number of Items = 100
+Min = 0.0 [m s^-1]
+Normalized = Off
+Number of Samples = 100
+Projection Type = None
+Random Seed = 1
+Range = Global
+Reduction Factor = 1.0
+Reduction or Max Number = Reduction
+Sample Spacing = 0.1
+Sampling Aspect Ratio = 1
+Sampling Grid Angle = 0 [degree]
+Specular Lighting = On
+Surface Drawing = Smooth Shading
+Symbol = Line Arrow
+Symbol Size = 1.0
+Transparency = 0.0
+Variable = Velocity
+Variable Boundary Values = Conservative
+  OBJECT VIEW TRANSFORM:
+  Apply Reflection = Off
+  Apply Rotation = Off
+  Apply Scale = Off
+  Apply Translation = Off
+  Principal Axis = Z
+  Reflection Plane Option = XY Plane
+  Rotation Angle = 0.0 [degree]
+  Rotation Axis From = 0 [m], 0 [m], 0 [m]
+  Rotation Axis To = 0 [m], 0 [m], 0 [m]
+  Rotation Axis Type = Principal Axis
+  Scale Vector = 1 , 1 , 1 
+  Translation Vector = 0 [m], 0 [m], 0 [m]
+  X = 0.0 [m]
+  Y = 0.0 [m]
+  Z = 0.0 [m]
+  END
+END""")
+results1.SendCommand(Command="""# Sending visibility action from ViewUtilities
+>show /VECTOR:Vector 1, view=/VIEW:View 1""")
+results1.SendCommand(Command="""VIEW:View 1
+  Camera Mode = User Specified
+  CAMERA:
+    Option = Pivot Point and Quaternion
+    Pivot Point = 0, 0, -0.75
+    Scale = 2.53787
+    Pan = 0, 0
+    Rotation Quaternion = 0.0955489, 0.0737683, 0.0313807, 0.992189
+    
+  END
+
+END
+
+> update
+>highlight regionlist=/DATA READER/CASE:Case FFF/BOUNDARY:contact_region contact_region_2 contact_region_2 contact_region_3 src, domainlist=/DATA READER/CASE:Case FFF/DOMAIN:newdesignstraightupfullangle freeparts_cut extrude1_1_
+>highlight regionlist=/DATA READER/CASE:Case FFF/BOUNDARY:contact_region contact_region_2 contact_region_2 contact_region_3 src, domainlist=/DATA READER/CASE:Case FFF/DOMAIN:newdesignstraightupfullangle freeparts_cut extrude1_2_""")
+results1.SendCommand(Command=""">highlight regionlist=/DATA READER/CASE:Case FFF/BOUNDARY:contact_region contact_region_2 contact_region_2 contact_region_3 src, domainlist=/DATA READER/CASE:Case FFF/DOMAIN:newdesignstraightupfullangle freeparts_cut extrude1_1_
+>highlight regionlist=/DATA READER/CASE:Case FFF/BOUNDARY:contact_region contact_region_2 contact_region_2 contact_region_3 src, domainlist=/DATA READER/CASE:Case FFF/DOMAIN:newdesignstraightupfullangle freeparts_cut extrude1_2_""")
+results1.SendCommand(Command=""">highlight regionlist=/DATA READER/CASE:Case FFF/BOUNDARY:contact_region contact_region_2 contact_region_2 contact_region_3 src, domainlist=/DATA READER/CASE:Case FFF/DOMAIN:newdesignstraightupfullangle freeparts_cut extrude1_1_
+>highlight regionlist=/DATA READER/CASE:Case FFF/BOUNDARY:contact_region contact_region_2 contact_region_2 contact_region_3 src, domainlist=/DATA READER/CASE:Case FFF/DOMAIN:newdesignstraightupfullangle freeparts_cut extrude1_2_""")
+results1.SendCommand(Command=""">highlight regionlist=/DATA READER/CASE:Case FFF/BOUNDARY:contact_region contact_region_2 contact_region_2 contact_region_3 src, domainlist=/DATA READER/CASE:Case FFF/DOMAIN:newdesignstraightupfullangle freeparts_cut extrude1_1_
+>highlight regionlist=/DATA READER/CASE:Case FFF/BOUNDARY:contact_region contact_region_2 contact_region_2 contact_region_3 src, domainlist=/DATA READER/CASE:Case FFF/DOMAIN:newdesignstraightupfullangle freeparts_cut extrude1_2_""")
+results1.SendCommand(Command=""">highlight regionlist=/DATA READER/CASE:Case FFF/BOUNDARY:chamber newdesignstraightupfullangle freeparts_cut extrude1_1_, domainlist=/DATA READER/CASE:Case FFF/DOMAIN:newdesignstraightupfullangle freeparts_cut extrude1_2_
+>highlight regionlist=/DATA READER/CASE:Case FFF/BOUNDARY:chamber newdesignstraightupfullangle freeparts_cut extrude1_1_, domainlist=/DATA READER/CASE:Case FFF/DOMAIN:newdesignstraightupfullangle freeparts_cut extrude1_3_""")
+results1.SendCommand(Command=""">highlight regionlist=/DATA READER/CASE:Case FFF/BOUNDARY:chamber newdesignstraightupfullangle freeparts_cut extrude1_2_, domainlist=/DATA READER/CASE:Case FFF/DOMAIN:newdesignstraightupfullangle freeparts_cut extrude1_1_
+>highlight regionlist=/DATA READER/CASE:Case FFF/BOUNDARY:chamber newdesignstraightupfullangle freeparts_cut extrude1_2_, domainlist=/DATA READER/CASE:Case FFF/DOMAIN:newdesignstraightupfullangle freeparts_cut extrude1_3_""")
+results1.SendCommand(Command=""">highlight regionlist=/DATA READER/CASE:Case FFF/BOUNDARY:chamber newdesignstraightupfullangle freeparts_cut extrude1_2_, domainlist=/DATA READER/CASE:Case FFF/DOMAIN:newdesignstraightupfullangle freeparts_cut extrude1_1_
+>highlight regionlist=/DATA READER/CASE:Case FFF/BOUNDARY:chamber newdesignstraightupfullangle freeparts_cut extrude1_2_, domainlist=/DATA READER/CASE:Case FFF/DOMAIN:newdesignstraightupfullangle freeparts_cut extrude1_3_""")
+results1.SendCommand(Command=""">highlight regionlist=/DATA READER/CASE:Case FFF/BOUNDARY:outlet, domainlist=/DATA READER/CASE:Case FFF/DOMAIN:newdesignstraightupfullangle freeparts_cut extrude1_1_
+>highlight regionlist=/DATA READER/CASE:Case FFF/BOUNDARY:outlet, domainlist=/DATA READER/CASE:Case FFF/DOMAIN:newdesignstraightupfullangle freeparts_cut extrude1_2_""")
+results1.SendCommand(Command=""">highlight regionlist=/DATA READER/CASE:Case FFF/BOUNDARY:chamber newdesignstraightupfullangle freeparts_cut extrude1_2_, domainlist=/DATA READER/CASE:Case FFF/DOMAIN:newdesignstraightupfullangle freeparts_cut extrude1_1_
+>highlight regionlist=/DATA READER/CASE:Case FFF/BOUNDARY:chamber newdesignstraightupfullangle freeparts_cut extrude1_2_, domainlist=/DATA READER/CASE:Case FFF/DOMAIN:newdesignstraightupfullangle freeparts_cut extrude1_3_""")
+results1.SendCommand(Command=""">highlight regionlist=/DATA READER/CASE:Case FFF/BOUNDARY:symmetry, domainlist=/DATA READER/CASE:Case FFF/DOMAIN:newdesignstraightupfullangle freeparts_cut extrude1_1_
+>highlight regionlist=/DATA READER/CASE:Case FFF/BOUNDARY:symmetry, domainlist=/DATA READER/CASE:Case FFF/DOMAIN:newdesignstraightupfullangle freeparts_cut extrude1_2_""")
+results1.SendCommand(Command=""">highlight regionlist=/DATA READER/CASE:Case FFF/BOUNDARY:chamber newdesignstraightupfullangle freeparts_cut extrude1_2_, domainlist=/DATA READER/CASE:Case FFF/DOMAIN:newdesignstraightupfullangle freeparts_cut extrude1_1_
+>highlight regionlist=/DATA READER/CASE:Case FFF/BOUNDARY:chamber newdesignstraightupfullangle freeparts_cut extrude1_2_, domainlist=/DATA READER/CASE:Case FFF/DOMAIN:newdesignstraightupfullangle freeparts_cut extrude1_3_""")
+results1.SendCommand(Command=""">highlight regionlist=/DATA READER/CASE:Case FFF/BOUNDARY:symmetry, domainlist=/DATA READER/CASE:Case FFF/DOMAIN:newdesignstraightupfullangle freeparts_cut extrude1_1_
+>highlight regionlist=/DATA READER/CASE:Case FFF/BOUNDARY:symmetry, domainlist=/DATA READER/CASE:Case FFF/DOMAIN:newdesignstraightupfullangle freeparts_cut extrude1_2_""")
+results1.SendCommand(Command=""">highlight regionlist=/DATA READER/CASE:Case FFF/BOUNDARY:contact_region contact_region_2 contact_region_2 contact_region_3 src, domainlist=/DATA READER/CASE:Case FFF/DOMAIN:newdesignstraightupfullangle freeparts_cut extrude1_1_
+>highlight regionlist=/DATA READER/CASE:Case FFF/BOUNDARY:contact_region contact_region_2 contact_region_2 contact_region_3 src, domainlist=/DATA READER/CASE:Case FFF/DOMAIN:newdesignstraightupfullangle freeparts_cut extrude1_2_""")
+results1.SendCommand(Command=""">highlight regionlist=/DATA READER/CASE:Case FFF/BOUNDARY:chamber newdesignstraightupfullangle freeparts_cut extrude1_2_, domainlist=/DATA READER/CASE:Case FFF/DOMAIN:newdesignstraightupfullangle freeparts_cut extrude1_1_
+>highlight regionlist=/DATA READER/CASE:Case FFF/BOUNDARY:chamber newdesignstraightupfullangle freeparts_cut extrude1_2_, domainlist=/DATA READER/CASE:Case FFF/DOMAIN:newdesignstraightupfullangle freeparts_cut extrude1_3_""")
+results1.SendCommand(Command=""">highlight regionlist=/DATA READER/CASE:Case FFF/BOUNDARY:contact_region contact_region_2 contact_region_2 contact_region_3 src, domainlist=/DATA READER/CASE:Case FFF/DOMAIN:newdesignstraightupfullangle freeparts_cut extrude1_1_
+>highlight regionlist=/DATA READER/CASE:Case FFF/BOUNDARY:contact_region contact_region_2 contact_region_2 contact_region_3 src, domainlist=/DATA READER/CASE:Case FFF/DOMAIN:newdesignstraightupfullangle freeparts_cut extrude1_2_""")
+results1.SendCommand(Command=""">highlight regionlist=/DATA READER/CASE:Case FFF/BOUNDARY:chamber newdesignstraightupfullangle freeparts_cut extrude1_1_, domainlist=/DATA READER/CASE:Case FFF/DOMAIN:newdesignstraightupfullangle freeparts_cut extrude1_2_
+>highlight regionlist=/DATA READER/CASE:Case FFF/BOUNDARY:chamber newdesignstraightupfullangle freeparts_cut extrude1_1_, domainlist=/DATA READER/CASE:Case FFF/DOMAIN:newdesignstraightupfullangle freeparts_cut extrude1_3_""")
+results1.SendCommand(Command=""">highlight regionlist=/DATA READER/CASE:Case FFF/BOUNDARY:contact_region contact_region_2 contact_region_2 contact_region_3 src, domainlist=/DATA READER/CASE:Case FFF/DOMAIN:newdesignstraightupfullangle freeparts_cut extrude1_1_
+>highlight regionlist=/DATA READER/CASE:Case FFF/BOUNDARY:contact_region contact_region_2 contact_region_2 contact_region_3 src, domainlist=/DATA READER/CASE:Case FFF/DOMAIN:newdesignstraightupfullangle freeparts_cut extrude1_2_""")
+results1.SendCommand(Command=""">highlight regionlist=/DATA READER/CASE:Case FFF/BOUNDARY:contact_region contact_region_2 contact_region_2 contact_region_3 src, domainlist=/DATA READER/CASE:Case FFF/DOMAIN:newdesignstraightupfullangle freeparts_cut extrude1_1_
+>highlight regionlist=/DATA READER/CASE:Case FFF/BOUNDARY:contact_region contact_region_2 contact_region_2 contact_region_3 src, domainlist=/DATA READER/CASE:Case FFF/DOMAIN:newdesignstraightupfullangle freeparts_cut extrude1_2_""")
+results1.SendCommand(Command=""">highlight regionlist=/DATA READER/CASE:Case FFF/BOUNDARY:chamber newdesignstraightupfullangle freeparts_cut extrude1_1_, domainlist=/DATA READER/CASE:Case FFF/DOMAIN:newdesignstraightupfullangle freeparts_cut extrude1_2_
+>highlight regionlist=/DATA READER/CASE:Case FFF/BOUNDARY:chamber newdesignstraightupfullangle freeparts_cut extrude1_1_, domainlist=/DATA READER/CASE:Case FFF/DOMAIN:newdesignstraightupfullangle freeparts_cut extrude1_3_""")
+results1.SendCommand(Command=""">highlight regionlist=/DATA READER/CASE:Case FFF/BOUNDARY:chamber newdesignstraightupfullangle freeparts_cut extrude1_1_, domainlist=/DATA READER/CASE:Case FFF/DOMAIN:newdesignstraightupfullangle freeparts_cut extrude1_2_
+>highlight regionlist=/DATA READER/CASE:Case FFF/BOUNDARY:chamber newdesignstraightupfullangle freeparts_cut extrude1_1_, domainlist=/DATA READER/CASE:Case FFF/DOMAIN:newdesignstraightupfullangle freeparts_cut extrude1_3_""")
+results1.SendCommand(Command=""">highlight regionlist=/DATA READER/CASE:Case FFF/BOUNDARY:contact_region contact_region_2 contact_region_2 contact_region_3 src, domainlist=/DATA READER/CASE:Case FFF/DOMAIN:newdesignstraightupfullangle freeparts_cut extrude1_1_
+>highlight regionlist=/DATA READER/CASE:Case FFF/BOUNDARY:contact_region contact_region_2 contact_region_2 contact_region_3 src, domainlist=/DATA READER/CASE:Case FFF/DOMAIN:newdesignstraightupfullangle freeparts_cut extrude1_2_""")
+results1.SendCommand(Command=""">highlight regionlist=/DATA READER/CASE:Case FFF/BOUNDARY:chamber newdesignstraightupfullangle freeparts_cut extrude1_1_, domainlist=/DATA READER/CASE:Case FFF/DOMAIN:newdesignstraightupfullangle freeparts_cut extrude1_2_
+>highlight regionlist=/DATA READER/CASE:Case FFF/BOUNDARY:chamber newdesignstraightupfullangle freeparts_cut extrude1_1_, domainlist=/DATA READER/CASE:Case FFF/DOMAIN:newdesignstraightupfullangle freeparts_cut extrude1_3_""")
+results1.SendCommand(Command=""">highlight regionlist=/DATA READER/CASE:Case FFF/BOUNDARY:chamber newdesignstraightupfullangle freeparts_cut extrude1_1_, domainlist=/DATA READER/CASE:Case FFF/DOMAIN:newdesignstraightupfullangle freeparts_cut extrude1_2_
+>highlight regionlist=/DATA READER/CASE:Case FFF/BOUNDARY:chamber newdesignstraightupfullangle freeparts_cut extrude1_1_, domainlist=/DATA READER/CASE:Case FFF/DOMAIN:newdesignstraightupfullangle freeparts_cut extrude1_3_""")
+results1.SendCommand(Command=""">highlight regionlist=/DATA READER/CASE:Case FFF/BOUNDARY:contact_region contact_region_2 contact_region_2 contact_region_3 src, domainlist=/DATA READER/CASE:Case FFF/DOMAIN:newdesignstraightupfullangle freeparts_cut extrude1_1_
+>highlight regionlist=/DATA READER/CASE:Case FFF/BOUNDARY:contact_region contact_region_2 contact_region_2 contact_region_3 src, domainlist=/DATA READER/CASE:Case FFF/DOMAIN:newdesignstraightupfullangle freeparts_cut extrude1_2_""")
+results1.SendCommand(Command=""">highlight regionlist=/DATA READER/CASE:Case FFF/BOUNDARY:symmetry, domainlist=/DATA READER/CASE:Case FFF/DOMAIN:newdesignstraightupfullangle freeparts_cut extrude1_1_
+>highlight regionlist=/DATA READER/CASE:Case FFF/BOUNDARY:symmetry, domainlist=/DATA READER/CASE:Case FFF/DOMAIN:newdesignstraightupfullangle freeparts_cut extrude1_2_""")
+results1.SendCommand(Command=""">highlight regionlist=/DATA READER/CASE:Case FFF/BOUNDARY:contact_region contact_region_2 contact_region_2 contact_region_3 src, domainlist=/DATA READER/CASE:Case FFF/DOMAIN:newdesignstraightupfullangle freeparts_cut extrude1_1_
+>highlight regionlist=/DATA READER/CASE:Case FFF/BOUNDARY:contact_region contact_region_2 contact_region_2 contact_region_3 src, domainlist=/DATA READER/CASE:Case FFF/DOMAIN:newdesignstraightupfullangle freeparts_cut extrude1_2_""")
+results1.SendCommand(Command=""">highlight regionlist=/DATA READER/CASE:Case FFF/BOUNDARY:contact_region contact_region_2 contact_region_2 contact_region_3 src, domainlist=/DATA READER/CASE:Case FFF/DOMAIN:newdesignstraightupfullangle freeparts_cut extrude1_1_
+>highlight regionlist=/DATA READER/CASE:Case FFF/BOUNDARY:contact_region contact_region_2 contact_region_2 contact_region_3 src, domainlist=/DATA READER/CASE:Case FFF/DOMAIN:newdesignstraightupfullangle freeparts_cut extrude1_2_""")
+results1.SendCommand(Command="""VECTOR:Vector 1
+Apply Instancing Transform = On
+Colour = 0.75, 0.75, 0.75
+Colour Map = Default Colour Map
+Colour Mode = Use Plot Variable
+Colour Scale = Linear
+Colour Variable = Velocity
+Colour Variable Boundary Values = Conservative
+Coord Frame = Global
+Culling Mode = No Culling
+Direction = X
+Domain List = /DOMAIN GROUP:All Domains
+Draw Faces = On
+Draw Lines = Off
+Instancing Transform = /DEFAULT INSTANCE TRANSFORM:Default Transform
+Lighting = On
+Line Width = 1
+Location List = contact_region contact_region_2 contact_region_2 contact_region_3 src
+Locator Sampling Method = Vertex
+Max = 0.0 [m s^-1]
+Maximum Number of Items = 100
+Min = 0.0 [m s^-1]
+Normalized = Off
+Number of Samples = 100
+Projection Type = None
+Random Seed = 1
+Range = Global
+Reduction Factor = 1.0
+Reduction or Max Number = Reduction
+Sample Spacing = 0.1
+Sampling Aspect Ratio = 1
+Sampling Grid Angle = 0 [degree]
+Specular Lighting = On
+Surface Drawing = Smooth Shading
+Symbol = Line Arrow
+Symbol Size = 1.0
+Transparency = 0.0
+Variable = Velocity
+Variable Boundary Values = Conservative
+  OBJECT VIEW TRANSFORM:
+  Apply Reflection = Off
+  Apply Rotation = Off
+  Apply Scale = Off
+  Apply Translation = Off
+  Principal Axis = Z
+  Reflection Plane Option = XY Plane
+  Rotation Angle = 0.0 [degree]
+  Rotation Axis From = 0 [m], 0 [m], 0 [m]
+  Rotation Axis To = 0 [m], 0 [m], 0 [m]
+  Rotation Axis Type = Principal Axis
+  Scale Vector = 1 , 1 , 1 
+  Translation Vector = 0 [m], 0 [m], 0 [m]
+  X = 0.0 [m]
+  Y = 0.0 [m]
+  Z = 0.0 [m]
+  END
+END""")
+results1.SendCommand(Command=""">highlight regionlist=/DATA READER/CASE:Case FFF/BOUNDARY:contact_region contact_region_2 contact_region_2 contact_region_3 src, domainlist=/DATA READER/CASE:Case FFF/DOMAIN:newdesignstraightupfullangle freeparts_cut extrude1_1_
+>highlight regionlist=/DATA READER/CASE:Case FFF/BOUNDARY:contact_region contact_region_2 contact_region_2 contact_region_3 src, domainlist=/DATA READER/CASE:Case FFF/DOMAIN:newdesignstraightupfullangle freeparts_cut extrude1_2_""")
+results1.SendCommand(Command=""">highlight regionlist=/DATA READER/CASE:Case FFF/BOUNDARY:contact_region contact_region_2 contact_region_2 contact_region_3 src, domainlist=/DATA READER/CASE:Case FFF/DOMAIN:newdesignstraightupfullangle freeparts_cut extrude1_1_
+>highlight regionlist=/DATA READER/CASE:Case FFF/BOUNDARY:contact_region contact_region_2 contact_region_2 contact_region_3 src, domainlist=/DATA READER/CASE:Case FFF/DOMAIN:newdesignstraightupfullangle freeparts_cut extrude1_2_""")
+results1.SendCommand(Command=""">highlight regionlist=/DATA READER/CASE:Case FFF/BOUNDARY:contact_region contact_region_2 contact_region_2 contact_region_3 src, domainlist=/DATA READER/CASE:Case FFF/DOMAIN:newdesignstraightupfullangle freeparts_cut extrude1_1_
+>highlight regionlist=/DATA READER/CASE:Case FFF/BOUNDARY:contact_region contact_region_2 contact_region_2 contact_region_3 src, domainlist=/DATA READER/CASE:Case FFF/DOMAIN:newdesignstraightupfullangle freeparts_cut extrude1_2_""")
+results1.SendCommand(Command=""">highlight regionlist=/DATA READER/CASE:Case FFF/BOUNDARY:contact_region contact_region_2 contact_region_2 contact_region_3 src, domainlist=/DATA READER/CASE:Case FFF/DOMAIN:newdesignstraightupfullangle freeparts_cut extrude1_1_
+>highlight regionlist=/DATA READER/CASE:Case FFF/BOUNDARY:contact_region contact_region_2 contact_region_2 contact_region_3 src, domainlist=/DATA READER/CASE:Case FFF/DOMAIN:newdesignstraightupfullangle freeparts_cut extrude1_2_""")
+results1.SendCommand(Command=""">highlight regionlist=/DATA READER/CASE:Case FFF/BOUNDARY:chamber newdesignstraightupfullangle freeparts_cut extrude1_1_, domainlist=/DATA READER/CASE:Case FFF/DOMAIN:newdesignstraightupfullangle freeparts_cut extrude1_2_
+>highlight regionlist=/DATA READER/CASE:Case FFF/BOUNDARY:chamber newdesignstraightupfullangle freeparts_cut extrude1_1_, domainlist=/DATA READER/CASE:Case FFF/DOMAIN:newdesignstraightupfullangle freeparts_cut extrude1_3_""")
+results1.SendCommand(Command=""">highlight regionlist=/DATA READER/CASE:Case FFF/BOUNDARY:contact_region contact_region_2 contact_region_2 contact_region_3 src, domainlist=/DATA READER/CASE:Case FFF/DOMAIN:newdesignstraightupfullangle freeparts_cut extrude1_1_
+>highlight regionlist=/DATA READER/CASE:Case FFF/BOUNDARY:contact_region contact_region_2 contact_region_2 contact_region_3 src, domainlist=/DATA READER/CASE:Case FFF/DOMAIN:newdesignstraightupfullangle freeparts_cut extrude1_2_""")
+results1.SendCommand(Command=""">highlight regionlist=/DATA READER/CASE:Case FFF/BOUNDARY:contact_region contact_region_2 contact_region_2 contact_region_3 src, domainlist=/DATA READER/CASE:Case FFF/DOMAIN:newdesignstraightupfullangle freeparts_cut extrude1_1_
+>highlight regionlist=/DATA READER/CASE:Case FFF/BOUNDARY:contact_region contact_region_2 contact_region_2 contact_region_3 src, domainlist=/DATA READER/CASE:Case FFF/DOMAIN:newdesignstraightupfullangle freeparts_cut extrude1_2_""")
+results1.SendCommand(Command=""">highlight regionlist=/DATA READER/CASE:Case FFF/BOUNDARY:outlet, domainlist=/DATA READER/CASE:Case FFF/DOMAIN:newdesignstraightupfullangle freeparts_cut extrude1_1_
+>highlight regionlist=/DATA READER/CASE:Case FFF/BOUNDARY:outlet, domainlist=/DATA READER/CASE:Case FFF/DOMAIN:newdesignstraightupfullangle freeparts_cut extrude1_2_""")
+results1.SendCommand(Command=""">highlight regionlist=/DATA READER/CASE:Case FFF/BOUNDARY:contact_region contact_region_2 contact_region_2 contact_region_3 src, domainlist=/DATA READER/CASE:Case FFF/DOMAIN:newdesignstraightupfullangle freeparts_cut extrude1_1_
+>highlight regionlist=/DATA READER/CASE:Case FFF/BOUNDARY:contact_region contact_region_2 contact_region_2 contact_region_3 src, domainlist=/DATA READER/CASE:Case FFF/DOMAIN:newdesignstraightupfullangle freeparts_cut extrude1_2_""")
+results1.SendCommand(Command=""">highlight regionlist=/DATA READER/CASE:Case FFF/BOUNDARY:symmetry, domainlist=/DATA READER/CASE:Case FFF/DOMAIN:newdesignstraightupfullangle freeparts_cut extrude1_1_
+>highlight regionlist=/DATA READER/CASE:Case FFF/BOUNDARY:symmetry, domainlist=/DATA READER/CASE:Case FFF/DOMAIN:newdesignstraightupfullangle freeparts_cut extrude1_2_""")
+results1.SendCommand(Command=""">highlight regionlist=/DATA READER/CASE:Case FFF/BOUNDARY:symmetry, domainlist=/DATA READER/CASE:Case FFF/DOMAIN:newdesignstraightupfullangle freeparts_cut extrude1_1_
+>highlight regionlist=/DATA READER/CASE:Case FFF/BOUNDARY:symmetry, domainlist=/DATA READER/CASE:Case FFF/DOMAIN:newdesignstraightupfullangle freeparts_cut extrude1_2_""")
+results1.SendCommand(Command=""">highlight regionlist=/DATA READER/CASE:Case FFF/BOUNDARY:symmetry, domainlist=/DATA READER/CASE:Case FFF/DOMAIN:newdesignstraightupfullangle freeparts_cut extrude1_1_
+>highlight regionlist=/DATA READER/CASE:Case FFF/BOUNDARY:symmetry, domainlist=/DATA READER/CASE:Case FFF/DOMAIN:newdesignstraightupfullangle freeparts_cut extrude1_2_""")
+results1.SendCommand(Command=""">highlight regionlist=/DATA READER/CASE:Case FFF/BOUNDARY:symmetry, domainlist=/DATA READER/CASE:Case FFF/DOMAIN:newdesignstraightupfullangle freeparts_cut extrude1_1_
+>highlight regionlist=/DATA READER/CASE:Case FFF/BOUNDARY:symmetry, domainlist=/DATA READER/CASE:Case FFF/DOMAIN:newdesignstraightupfullangle freeparts_cut extrude1_2_""")
+results1.SendCommand(Command=""">highlight regionlist=/DATA READER/CASE:Case FFF/BOUNDARY:symmetry, domainlist=/DATA READER/CASE:Case FFF/DOMAIN:newdesignstraightupfullangle freeparts_cut extrude1_1_
+>highlight regionlist=/DATA READER/CASE:Case FFF/BOUNDARY:symmetry, domainlist=/DATA READER/CASE:Case FFF/DOMAIN:newdesignstraightupfullangle freeparts_cut extrude1_2_""")
+results1.SendCommand(Command=""">highlight regionlist=/DATA READER/CASE:Case FFF/BOUNDARY:symmetry, domainlist=/DATA READER/CASE:Case FFF/DOMAIN:newdesignstraightupfullangle freeparts_cut extrude1_1_
+>highlight regionlist=/DATA READER/CASE:Case FFF/BOUNDARY:symmetry, domainlist=/DATA READER/CASE:Case FFF/DOMAIN:newdesignstraightupfullangle freeparts_cut extrude1_2_""")
+results1.SendCommand(Command="""VECTOR:Vector 1
+Apply Instancing Transform = On
+Colour = 0.75, 0.75, 0.75
+Colour Map = Default Colour Map
+Colour Mode = Use Plot Variable
+Colour Scale = Linear
+Colour Variable = Velocity
+Colour Variable Boundary Values = Conservative
+Coord Frame = Global
+Culling Mode = No Culling
+Direction = X
+Domain List = /DOMAIN GROUP:All Domains
+Draw Faces = On
+Draw Lines = Off
+Instancing Transform = /DEFAULT INSTANCE TRANSFORM:Default Transform
+Lighting = On
+Line Width = 1
+Location List = symmetry
+Locator Sampling Method = Vertex
+Max = 0.0 [m s^-1]
+Maximum Number of Items = 100
+Min = 0.0 [m s^-1]
+Normalized = Off
+Number of Samples = 100
+Projection Type = None
+Random Seed = 1
+Range = Global
+Reduction Factor = 1.0
+Reduction or Max Number = Reduction
+Sample Spacing = 0.1
+Sampling Aspect Ratio = 1
+Sampling Grid Angle = 0 [degree]
+Specular Lighting = On
+Surface Drawing = Smooth Shading
+Symbol = Line Arrow
+Symbol Size = 1.0
+Transparency = 0.0
+Variable = Velocity
+Variable Boundary Values = Conservative
+  OBJECT VIEW TRANSFORM:
+  Apply Reflection = Off
+  Apply Rotation = Off
+  Apply Scale = Off
+  Apply Translation = Off
+  Principal Axis = Z
+  Reflection Plane Option = XY Plane
+  Rotation Angle = 0.0 [degree]
+  Rotation Axis From = 0 [m], 0 [m], 0 [m]
+  Rotation Axis To = 0 [m], 0 [m], 0 [m]
+  Rotation Axis Type = Principal Axis
+  Scale Vector = 1 , 1 , 1 
+  Translation Vector = 0 [m], 0 [m], 0 [m]
+  X = 0.0 [m]
+  Y = 0.0 [m]
+  Z = 0.0 [m]
+  END
+END""")
+results1.SendCommand(Command="""VIEW:View 1
+  Camera Mode = User Specified
+  CAMERA:
+    Option = Pivot Point and Quaternion
+    Pivot Point = 0, 0, -0.75
+    Scale = 3.16757
+    Pan = 0, 0
+    Rotation Quaternion = 0.0955489, 0.0737683, 0.0313807, 0.992189
+    
+  END
+
+END
+
+> update
+VECTOR:Vector 1
+Apply Instancing Transform = On
+Colour = 0.75, 0.75, 0.75
+Colour Map = Default Colour Map
+Colour Mode = Use Plot Variable
+Colour Scale = Linear
+Colour Variable = Velocity
+Colour Variable Boundary Values = Conservative
+Coord Frame = Global
+Culling Mode = No Culling
+Direction = X
+Domain List = /DOMAIN GROUP:All Domains
+Draw Faces = On
+Draw Lines = Off
+Instancing Transform = /DEFAULT INSTANCE TRANSFORM:Default Transform
+Lighting = On
+Line Width = 1
+Location List = symmetry
+Locator Sampling Method = Vertex
+Max = 0.0 [m s^-1]
+Maximum Number of Items = 100
+Min = 0.0 [m s^-1]
+Normalized = Off
+Number of Samples = 100
+Projection Type = None
+Random Seed = 1
+Range = Global
+Reduction Factor = 3
+Reduction or Max Number = Reduction
+Sample Spacing = 0.1
+Sampling Aspect Ratio = 1
+Sampling Grid Angle = 0 [degree]
+Specular Lighting = On
+Surface Drawing = Smooth Shading
+Symbol = Line Arrow
+Symbol Size = 1.0
+Transparency = 0.0
+Variable = Velocity
+Variable Boundary Values = Conservative
+  OBJECT VIEW TRANSFORM:
+  Apply Reflection = Off
+  Apply Rotation = Off
+  Apply Scale = Off
+  Apply Translation = Off
+  Principal Axis = Z
+  Reflection Plane Option = XY Plane
+  Rotation Angle = 0.0 [degree]
+  Rotation Axis From = 0 [m], 0 [m], 0 [m]
+  Rotation Axis To = 0 [m], 0 [m], 0 [m]
+  Rotation Axis Type = Principal Axis
+  Scale Vector = 1 , 1 , 1 
+  Translation Vector = 0 [m], 0 [m], 0 [m]
+  X = 0.0 [m]
+  Y = 0.0 [m]
+  Z = 0.0 [m]
+  END
+END""")
+results1.SendCommand(Command="""VECTOR:Vector 1
+Apply Instancing Transform = On
+Colour = 0.75, 0.75, 0.75
+Colour Map = Default Colour Map
+Colour Mode = Use Plot Variable
+Colour Scale = Linear
+Colour Variable = Velocity
+Colour Variable Boundary Values = Conservative
+Coord Frame = Global
+Culling Mode = No Culling
+Direction = X
+Domain List = /DOMAIN GROUP:All Domains
+Draw Faces = On
+Draw Lines = Off
+Instancing Transform = /DEFAULT INSTANCE TRANSFORM:Default Transform
+Lighting = On
+Line Width = 1
+Location List = symmetry
+Locator Sampling Method = Vertex
+Max = 0.0 [m s^-1]
+Maximum Number of Items = 100
+Min = 0.0 [m s^-1]
+Normalized = Off
+Number of Samples = 100
+Projection Type = None
+Random Seed = 1
+Range = Global
+Reduction Factor = 1
+Reduction or Max Number = Reduction
+Sample Spacing = 0.1
+Sampling Aspect Ratio = 1
+Sampling Grid Angle = 0 [degree]
+Specular Lighting = On
+Surface Drawing = Smooth Shading
+Symbol = Line Arrow
+Symbol Size = 1.0
+Transparency = 0.0
+Variable = Velocity
+Variable Boundary Values = Conservative
+  OBJECT VIEW TRANSFORM:
+  Apply Reflection = Off
+  Apply Rotation = Off
+  Apply Scale = Off
+  Apply Translation = Off
+  Principal Axis = Z
+  Reflection Plane Option = XY Plane
+  Rotation Angle = 0.0 [degree]
+  Rotation Axis From = 0 [m], 0 [m], 0 [m]
+  Rotation Axis To = 0 [m], 0 [m], 0 [m]
+  Rotation Axis Type = Principal Axis
+  Scale Vector = 1 , 1 , 1 
+  Translation Vector = 0 [m], 0 [m], 0 [m]
+  X = 0.0 [m]
+  Y = 0.0 [m]
+  Z = 0.0 [m]
+  END
+END""")
+results1.SendCommand(Command="""VECTOR:Vector 1
+Apply Instancing Transform = On
+Colour = 0.75, 0.75, 0.75
+Colour Map = Default Colour Map
+Colour Mode = Use Plot Variable
+Colour Scale = Linear
+Colour Variable = Velocity
+Colour Variable Boundary Values = Conservative
+Coord Frame = Global
+Culling Mode = No Culling
+Direction = X
+Domain List = /DOMAIN GROUP:All Domains
+Draw Faces = On
+Draw Lines = Off
+Instancing Transform = /DEFAULT INSTANCE TRANSFORM:Default Transform
+Lighting = On
+Line Width = 1
+Location List = symmetry
+Locator Sampling Method = Vertex
+Max = 0.0 [m s^-1]
+Maximum Number of Items = 100
+Min = 0.0 [m s^-1]
+Normalized = Off
+Number of Samples = 100
+Projection Type = None
+Random Seed = 1
+Range = Global
+Reduction Factor = 1
+Reduction or Max Number = Reduction
+Sample Spacing = 0.1
+Sampling Aspect Ratio = 1
+Sampling Grid Angle = 0 [degree]
+Specular Lighting = On
+Surface Drawing = Smooth Shading
+Symbol = Line Arrow
+Symbol Size = 3
+Transparency = 0.0
+Variable = Velocity
+Variable Boundary Values = Conservative
+  OBJECT VIEW TRANSFORM:
+  Apply Reflection = Off
+  Apply Rotation = Off
+  Apply Scale = Off
+  Apply Translation = Off
+  Principal Axis = Z
+  Reflection Plane Option = XY Plane
+  Rotation Angle = 0.0 [degree]
+  Rotation Axis From = 0 [m], 0 [m], 0 [m]
+  Rotation Axis To = 0 [m], 0 [m], 0 [m]
+  Rotation Axis Type = Principal Axis
+  Scale Vector = 1 , 1 , 1 
+  Translation Vector = 0 [m], 0 [m], 0 [m]
+  X = 0.0 [m]
+  Y = 0.0 [m]
+  Z = 0.0 [m]
+  END
+END""")
+results1.SendCommand(Command="""VECTOR:Vector 1
+Apply Instancing Transform = On
+Colour = 0.75, 0.75, 0.75
+Colour Map = Default Colour Map
+Colour Mode = Use Plot Variable
+Colour Scale = Linear
+Colour Variable = Velocity
+Colour Variable Boundary Values = Conservative
+Coord Frame = Global
+Culling Mode = No Culling
+Direction = X
+Domain List = /DOMAIN GROUP:All Domains
+Draw Faces = On
+Draw Lines = Off
+Instancing Transform = /DEFAULT INSTANCE TRANSFORM:Default Transform
+Lighting = On
+Line Width = 1
+Location List = symmetry
+Locator Sampling Method = Vertex
+Max = 0.0 [m s^-1]
+Maximum Number of Items = 100
+Min = 0.0 [m s^-1]
+Normalized = Off
+Number of Samples = 100
+Projection Type = None
+Random Seed = 1
+Range = Global
+Reduction Factor = 1
+Reduction or Max Number = Reduction
+Sample Spacing = 0.1
+Sampling Aspect Ratio = 1
+Sampling Grid Angle = 0 [degree]
+Specular Lighting = On
+Surface Drawing = Smooth Shading
+Symbol = Line Arrow
+Symbol Size = 4
+Transparency = 0.0
+Variable = Velocity
+Variable Boundary Values = Conservative
+  OBJECT VIEW TRANSFORM:
+  Apply Reflection = Off
+  Apply Rotation = Off
+  Apply Scale = Off
+  Apply Translation = Off
+  Principal Axis = Z
+  Reflection Plane Option = XY Plane
+  Rotation Angle = 0.0 [degree]
+  Rotation Axis From = 0 [m], 0 [m], 0 [m]
+  Rotation Axis To = 0 [m], 0 [m], 0 [m]
+  Rotation Axis Type = Principal Axis
+  Scale Vector = 1 , 1 , 1 
+  Translation Vector = 0 [m], 0 [m], 0 [m]
+  X = 0.0 [m]
+  Y = 0.0 [m]
+  Z = 0.0 [m]
+  END
+END""")
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "MenuBar*FileMenu*Close Fluent")')
+Save(Overwrite=True)
+results1.SendCommand(Command="""VIEW:View 1
+  Camera Mode = User Specified
+  CAMERA:
+    Option = Pivot Point and Quaternion
+    Pivot Point = 0, 0, -0.75
+    Scale = 1.40883
+    Pan = 0, 0
+    Rotation Quaternion = 0.0728035, -0.00919722, 0.0409198, 0.996462
+    
+  END
+
+END
+
+> update
+> autolegend plot=/CONTOUR:Contour 1, view=VIEW:View 1""")
+results1.SendCommand(Command="""# Sending visibility action from ViewUtilities
+>hide /VECTOR:Vector 1, view=/VIEW:View 1""")
+results1.SendCommand(Command=""">highlight regionlist=/DATA READER/CASE:Case FFF/BOUNDARY:chamber contact_region contact_region_2 contact_region_2 contact_region_3 src, domainlist=/DATA READER/CASE:Case FFF/DOMAIN:newdesignstraightupfullangle freeparts_cut extrude1_2_
+>highlight regionlist=/DATA READER/CASE:Case FFF/BOUNDARY:chamber contact_region contact_region_2 contact_region_2 contact_region_3 src, domainlist=/DATA READER/CASE:Case FFF/DOMAIN:newdesignstraightupfullangle freeparts_cut extrude1_3_""")
+results1.SendCommand(Command="> autolegend plot=/VECTOR:Vector 1, view=VIEW:View 1")
+results1.SendCommand(Command="> autolegend plot=/CONTOUR:Contour 1, view=VIEW:View 1")
+results1.SendCommand(Command=""">highlight regionlist=/DATA READER/CASE:Case FFF/BOUNDARY:chamber contact_region contact_region_2 contact_region_2 contact_region_3 src, domainlist=/DATA READER/CASE:Case FFF/DOMAIN:newdesignstraightupfullangle freeparts_cut extrude1_2_
+>highlight regionlist=/DATA READER/CASE:Case FFF/BOUNDARY:chamber contact_region contact_region_2 contact_region_2 contact_region_3 src, domainlist=/DATA READER/CASE:Case FFF/DOMAIN:newdesignstraightupfullangle freeparts_cut extrude1_3_""")
+results1.SendCommand(Command="""CONTOUR:Contour 1
+Apply Instancing Transform = On
+Clip Contour = Off
+Colour Map = Default Colour Map
+Colour Scale = Linear
+Colour Variable = Velocity
+Colour Variable Boundary Values = Conservative
+Constant Contour Colour = Off
+Contour Range = Global
+Culling Mode = No Culling
+Domain List = /DOMAIN GROUP:All Domains
+Draw Contours = On
+Font = Sans Serif
+Fringe Fill = On
+Instancing Transform = /DEFAULT INSTANCE TRANSFORM:Default Transform
+Lighting = On
+Line Colour = 0, 0, 0
+Line Colour Mode = Default
+Line Width = 1
+Location List = chamber contact_region contact_region_2 contact_region_2 contact_region_3 src
+Max = 0.0 [m s^-1]
+Min = 0.0 [m s^-1]
+Number of Contours = 11
+Show Numbers = Off
+Specular Lighting = On
+Surface Drawing = Smooth Shading
+Text Colour = 0, 0, 0
+Text Colour Mode = Default
+Text Height = 0.024
+Transparency = 0.0
+Use Face Values = Off
+Value List = 0 [m s^-1],1 [m s^-1]
+  OBJECT VIEW TRANSFORM:
+  Apply Reflection = Off
+  Apply Rotation = Off
+  Apply Scale = Off
+  Apply Translation = Off
+  Principal Axis = Z
+  Reflection Plane Option = XY Plane
+  Rotation Angle = 0.0 [degree]
+  Rotation Axis From = 0 [m], 0 [m], 0 [m]
+  Rotation Axis To = 0 [m], 0 [m], 0 [m]
+  Rotation Axis Type = Principal Axis
+  Scale Vector = 1 , 1 , 1 
+  Translation Vector = 0 [m], 0 [m], 0 [m]
+  X = 0.0 [m]
+  Y = 0.0 [m]
+  Z = 0.0 [m]
+  END
+END""")
+results1.SendCommand(Command="""# Sending visibility action from ViewUtilities
+>show /CONTOUR:Contour 1, view=/VIEW:View 1""")
+results1.SendCommand(Command=""">highlight regionlist=/DATA READER/CASE:Case FFF/BOUNDARY:chamber contact_region contact_region_2 contact_region_2 contact_region_3 src, domainlist=/DATA READER/CASE:Case FFF/DOMAIN:newdesignstraightupfullangle freeparts_cut extrude1_2_
+>highlight regionlist=/DATA READER/CASE:Case FFF/BOUNDARY:chamber contact_region contact_region_2 contact_region_2 contact_region_3 src, domainlist=/DATA READER/CASE:Case FFF/DOMAIN:newdesignstraightupfullangle freeparts_cut extrude1_3_""")
+results1.SendCommand(Command="""CONTOUR:Contour 1
+Apply Instancing Transform = On
+Clip Contour = Off
+Colour Map = Default Colour Map
+Colour Scale = Linear
+Colour Variable = Velocity
+Colour Variable Boundary Values = Conservative
+Constant Contour Colour = Off
+Contour Range = Global
+Culling Mode = No Culling
+Domain List = newdesignstraightupfullangle freeparts_cut extrude1_3_
+Draw Contours = On
+Font = Sans Serif
+Fringe Fill = On
+Instancing Transform = /DEFAULT INSTANCE TRANSFORM:Default Transform
+Lighting = On
+Line Colour = 0, 0, 0
+Line Colour Mode = Default
+Line Width = 1
+Location List = contact_region contact_region_2 contact_region_2 contact_region_3 src
+Max = 0.0 [m s^-1]
+Min = 0.0 [m s^-1]
+Number of Contours = 11
+Show Numbers = Off
+Specular Lighting = On
+Surface Drawing = Smooth Shading
+Text Colour = 0, 0, 0
+Text Colour Mode = Default
+Text Height = 0.024
+Transparency = 0.0
+Use Face Values = Off
+Value List = 0 [m s^-1],1 [m s^-1]
+  OBJECT VIEW TRANSFORM:
+  Apply Reflection = Off
+  Apply Rotation = Off
+  Apply Scale = Off
+  Apply Translation = Off
+  Principal Axis = Z
+  Reflection Plane Option = XY Plane
+  Rotation Angle = 0.0 [degree]
+  Rotation Axis From = 0 [m], 0 [m], 0 [m]
+  Rotation Axis To = 0 [m], 0 [m], 0 [m]
+  Rotation Axis Type = Principal Axis
+  Scale Vector = 1 , 1 , 1 
+  Translation Vector = 0 [m], 0 [m], 0 [m]
+  X = 0.0 [m]
+  Y = 0.0 [m]
+  Z = 0.0 [m]
+  END
+END""")
+results1.SendCommand(Command="""VIEW:View 1
+  Camera Mode = User Specified
+  CAMERA:
+    Option = Pivot Point and Quaternion
+    Pivot Point = 0, 0, -0.75
+    Scale = 1.34094
+    Pan = 0, 0
+    Rotation Quaternion = 0.126469, -0.0501366, -0.109402, 0.984641
+    
+  END
+
+END
+
+> update
+CONTOUR:Contour 1
+Apply Instancing Transform = On
+Clip Contour = Off
+Colour Map = Default Colour Map
+Colour Scale = Linear
+Colour Variable = Velocity
+Colour Variable Boundary Values = Conservative
+Constant Contour Colour = Off
+Contour Range = Global
+Culling Mode = No Culling
+Domain List = /DOMAIN GROUP:All Domains
+Draw Contours = On
+Font = Sans Serif
+Fringe Fill = On
+Instancing Transform = /DEFAULT INSTANCE TRANSFORM:Default Transform
+Lighting = On
+Line Colour = 0, 0, 0
+Line Colour Mode = Default
+Line Width = 1
+Location List = contact_region contact_region_2 contact_region_2 contact_region_3 src
+Max = 0.0 [m s^-1]
+Min = 0.0 [m s^-1]
+Number of Contours = 11
+Show Numbers = Off
+Specular Lighting = On
+Surface Drawing = Smooth Shading
+Text Colour = 0, 0, 0
+Text Colour Mode = Default
+Text Height = 0.024
+Transparency = 0.0
+Use Face Values = Off
+Value List = 0 [m s^-1],1 [m s^-1]
+  OBJECT VIEW TRANSFORM:
+  Apply Reflection = Off
+  Apply Rotation = Off
+  Apply Scale = Off
+  Apply Translation = Off
+  Principal Axis = Z
+  Reflection Plane Option = XY Plane
+  Rotation Angle = 0.0 [degree]
+  Rotation Axis From = 0 [m], 0 [m], 0 [m]
+  Rotation Axis To = 0 [m], 0 [m], 0 [m]
+  Rotation Axis Type = Principal Axis
+  Scale Vector = 1 , 1 , 1 
+  Translation Vector = 0 [m], 0 [m], 0 [m]
+  X = 0.0 [m]
+  Y = 0.0 [m]
+  Z = 0.0 [m]
+  END
+END""")
+results1.SendCommand(Command=""">highlight regionlist=/DATA READER/CASE:Case FFF/BOUNDARY:contact_region contact_region_2 contact_region_2 contact_region_3 src, domainlist=/DATA READER/CASE:Case FFF/DOMAIN:newdesignstraightupfullangle freeparts_cut extrude1_1_
+>highlight regionlist=/DATA READER/CASE:Case FFF/BOUNDARY:contact_region contact_region_2 contact_region_2 contact_region_3 src, domainlist=/DATA READER/CASE:Case FFF/DOMAIN:newdesignstraightupfullangle freeparts_cut extrude1_2_""")
+results1.SendCommand(Command="""VIEW:View 1
+  Camera Mode = User Specified
+  CAMERA:
+    Option = Pivot Point and Quaternion
+    Pivot Point = 0, 0, -0.75
+    Scale = 0.618499
+    Pan = 0, 0
+    Rotation Quaternion = 0.126469, -0.0501366, -0.109402, 0.984641
+    
+  END
+
+END
+
+> update
+>highlight regionlist=/DATA READER/CASE:Case FFF/BOUNDARY:contact_region contact_region_2 contact_region_2 contact_region_3 src, domainlist=/DATA READER/CASE:Case FFF/DOMAIN:newdesignstraightupfullangle freeparts_cut extrude1_1_
+>highlight regionlist=/DATA READER/CASE:Case FFF/BOUNDARY:contact_region contact_region_2 contact_region_2 contact_region_3 src, domainlist=/DATA READER/CASE:Case FFF/DOMAIN:newdesignstraightupfullangle freeparts_cut extrude1_2_""")
+results1.SendCommand(Command=""">highlight regionlist=/DATA READER/CASE:Case FFF/BOUNDARY:contact_region contact_region_2 contact_region_2 contact_region_3 src, domainlist=/DATA READER/CASE:Case FFF/DOMAIN:newdesignstraightupfullangle freeparts_cut extrude1_1_
+>highlight regionlist=/DATA READER/CASE:Case FFF/BOUNDARY:contact_region contact_region_2 contact_region_2 contact_region_3 src, domainlist=/DATA READER/CASE:Case FFF/DOMAIN:newdesignstraightupfullangle freeparts_cut extrude1_2_""")
+results1.SendCommand(Command=""">highlight regionlist=/DATA READER/CASE:Case FFF/BOUNDARY:contact_region contact_region_2 contact_region_2 contact_region_3 src, domainlist=/DATA READER/CASE:Case FFF/DOMAIN:newdesignstraightupfullangle freeparts_cut extrude1_1_
+>highlight regionlist=/DATA READER/CASE:Case FFF/BOUNDARY:contact_region contact_region_2 contact_region_2 contact_region_3 src, domainlist=/DATA READER/CASE:Case FFF/DOMAIN:newdesignstraightupfullangle freeparts_cut extrude1_2_""")
+results1.SendCommand(Command=""">highlight regionlist=/DATA READER/CASE:Case FFF/BOUNDARY:contact_region contact_region_2 contact_region_2 contact_region_3 src, domainlist=/DATA READER/CASE:Case FFF/DOMAIN:newdesignstraightupfullangle freeparts_cut extrude1_1_
+>highlight regionlist=/DATA READER/CASE:Case FFF/BOUNDARY:contact_region contact_region_2 contact_region_2 contact_region_3 src, domainlist=/DATA READER/CASE:Case FFF/DOMAIN:newdesignstraightupfullangle freeparts_cut extrude1_2_""")
+results1.SendCommand(Command=""">highlight regionlist=/DATA READER/CASE:Case FFF/BOUNDARY:chamber newdesignstraightupfullangle freeparts_cut extrude1_1_, domainlist=/DATA READER/CASE:Case FFF/DOMAIN:newdesignstraightupfullangle freeparts_cut extrude1_2_
+>highlight regionlist=/DATA READER/CASE:Case FFF/BOUNDARY:chamber newdesignstraightupfullangle freeparts_cut extrude1_1_, domainlist=/DATA READER/CASE:Case FFF/DOMAIN:newdesignstraightupfullangle freeparts_cut extrude1_3_""")
+results1.SendCommand(Command=""">highlight regionlist=/DATA READER/CASE:Case FFF/BOUNDARY:contact_region contact_region_2 contact_region_2 contact_region_3 src, domainlist=/DATA READER/CASE:Case FFF/DOMAIN:newdesignstraightupfullangle freeparts_cut extrude1_1_
+>highlight regionlist=/DATA READER/CASE:Case FFF/BOUNDARY:contact_region contact_region_2 contact_region_2 contact_region_3 src, domainlist=/DATA READER/CASE:Case FFF/DOMAIN:newdesignstraightupfullangle freeparts_cut extrude1_2_""")
+results1.SendCommand(Command=""">highlight regionlist=/DATA READER/CASE:Case FFF/BOUNDARY:outlet, domainlist=/DATA READER/CASE:Case FFF/DOMAIN:newdesignstraightupfullangle freeparts_cut extrude1_1_
+>highlight regionlist=/DATA READER/CASE:Case FFF/BOUNDARY:outlet, domainlist=/DATA READER/CASE:Case FFF/DOMAIN:newdesignstraightupfullangle freeparts_cut extrude1_2_""")
+results1.SendCommand(Command=""">highlight regionlist=/DATA READER/CASE:Case FFF/BOUNDARY:chamber contact_region contact_region_2 contact_region_2 contact_region_3 src, domainlist=/DATA READER/CASE:Case FFF/DOMAIN:newdesignstraightupfullangle freeparts_cut extrude1_2_
+>highlight regionlist=/DATA READER/CASE:Case FFF/BOUNDARY:chamber contact_region contact_region_2 contact_region_2 contact_region_3 src, domainlist=/DATA READER/CASE:Case FFF/DOMAIN:newdesignstraightupfullangle freeparts_cut extrude1_3_""")
+results1.SendCommand(Command=""">highlight regionlist=/DATA READER/CASE:Case FFF/BOUNDARY:symmetry, domainlist=/DATA READER/CASE:Case FFF/DOMAIN:newdesignstraightupfullangle freeparts_cut extrude1_1_
+>highlight regionlist=/DATA READER/CASE:Case FFF/BOUNDARY:symmetry, domainlist=/DATA READER/CASE:Case FFF/DOMAIN:newdesignstraightupfullangle freeparts_cut extrude1_2_""")
+results1.SendCommand(Command=""">highlight regionlist=/DATA READER/CASE:Case FFF/BOUNDARY:chamber contact_region contact_region_2 contact_region_2 contact_region_3 src, domainlist=/DATA READER/CASE:Case FFF/DOMAIN:newdesignstraightupfullangle freeparts_cut extrude1_2_
+>highlight regionlist=/DATA READER/CASE:Case FFF/BOUNDARY:chamber contact_region contact_region_2 contact_region_2 contact_region_3 src, domainlist=/DATA READER/CASE:Case FFF/DOMAIN:newdesignstraightupfullangle freeparts_cut extrude1_3_""")
+results1.SendCommand(Command=""">highlight regionlist=/DATA READER/CASE:Case FFF/BOUNDARY:contact_region contact_region_2 contact_region_2 contact_region_3 src, domainlist=/DATA READER/CASE:Case FFF/DOMAIN:newdesignstraightupfullangle freeparts_cut extrude1_1_
+>highlight regionlist=/DATA READER/CASE:Case FFF/BOUNDARY:contact_region contact_region_2 contact_region_2 contact_region_3 src, domainlist=/DATA READER/CASE:Case FFF/DOMAIN:newdesignstraightupfullangle freeparts_cut extrude1_2_""")
+results1.SendCommand(Command=""">highlight regionlist=/DATA READER/CASE:Case FFF/BOUNDARY:symmetry, domainlist=/DATA READER/CASE:Case FFF/DOMAIN:newdesignstraightupfullangle freeparts_cut extrude1_1_
+>highlight regionlist=/DATA READER/CASE:Case FFF/BOUNDARY:symmetry, domainlist=/DATA READER/CASE:Case FFF/DOMAIN:newdesignstraightupfullangle freeparts_cut extrude1_2_""")
+results1.SendCommand(Command=""">highlight regionlist=/DATA READER/CASE:Case FFF/BOUNDARY:symmetry, domainlist=/DATA READER/CASE:Case FFF/DOMAIN:newdesignstraightupfullangle freeparts_cut extrude1_1_
+>highlight regionlist=/DATA READER/CASE:Case FFF/BOUNDARY:symmetry, domainlist=/DATA READER/CASE:Case FFF/DOMAIN:newdesignstraightupfullangle freeparts_cut extrude1_2_""")
+results1.SendCommand(Command=""">highlight regionlist=/DATA READER/CASE:Case FFF/BOUNDARY:symmetry, domainlist=/DATA READER/CASE:Case FFF/DOMAIN:newdesignstraightupfullangle freeparts_cut extrude1_1_
+>highlight regionlist=/DATA READER/CASE:Case FFF/BOUNDARY:symmetry, domainlist=/DATA READER/CASE:Case FFF/DOMAIN:newdesignstraightupfullangle freeparts_cut extrude1_2_""")
+results1.SendCommand(Command=""">highlight regionlist=/DATA READER/CASE:Case FFF/BOUNDARY:symmetry, domainlist=/DATA READER/CASE:Case FFF/DOMAIN:newdesignstraightupfullangle freeparts_cut extrude1_1_
+>highlight regionlist=/DATA READER/CASE:Case FFF/BOUNDARY:symmetry, domainlist=/DATA READER/CASE:Case FFF/DOMAIN:newdesignstraightupfullangle freeparts_cut extrude1_2_""")
+results1.SendCommand(Command=""">highlight regionlist=/DATA READER/CASE:Case FFF/BOUNDARY:symmetry, domainlist=/DATA READER/CASE:Case FFF/DOMAIN:newdesignstraightupfullangle freeparts_cut extrude1_1_
+>highlight regionlist=/DATA READER/CASE:Case FFF/BOUNDARY:symmetry, domainlist=/DATA READER/CASE:Case FFF/DOMAIN:newdesignstraightupfullangle freeparts_cut extrude1_2_""")
+results1.SendCommand(Command=""">highlight regionlist=/DATA READER/CASE:Case FFF/BOUNDARY:symmetry, domainlist=/DATA READER/CASE:Case FFF/DOMAIN:newdesignstraightupfullangle freeparts_cut extrude1_1_
+>highlight regionlist=/DATA READER/CASE:Case FFF/BOUNDARY:symmetry, domainlist=/DATA READER/CASE:Case FFF/DOMAIN:newdesignstraightupfullangle freeparts_cut extrude1_2_""")
+results1.SendCommand(Command="""CONTOUR:Contour 1
+Apply Instancing Transform = On
+Clip Contour = Off
+Colour Map = Default Colour Map
+Colour Scale = Linear
+Colour Variable = Velocity
+Colour Variable Boundary Values = Conservative
+Constant Contour Colour = Off
+Contour Range = Global
+Culling Mode = No Culling
+Domain List = /DOMAIN GROUP:All Domains
+Draw Contours = On
+Font = Sans Serif
+Fringe Fill = On
+Instancing Transform = /DEFAULT INSTANCE TRANSFORM:Default Transform
+Lighting = On
+Line Colour = 0, 0, 0
+Line Colour Mode = Default
+Line Width = 1
+Location List = symmetry
+Max = 0.0 [m s^-1]
+Min = 0.0 [m s^-1]
+Number of Contours = 11
+Show Numbers = Off
+Specular Lighting = On
+Surface Drawing = Smooth Shading
+Text Colour = 0, 0, 0
+Text Colour Mode = Default
+Text Height = 0.024
+Transparency = 0.0
+Use Face Values = Off
+Value List = 0 [m s^-1],1 [m s^-1]
+  OBJECT VIEW TRANSFORM:
+  Apply Reflection = Off
+  Apply Rotation = Off
+  Apply Scale = Off
+  Apply Translation = Off
+  Principal Axis = Z
+  Reflection Plane Option = XY Plane
+  Rotation Angle = 0.0 [degree]
+  Rotation Axis From = 0 [m], 0 [m], 0 [m]
+  Rotation Axis To = 0 [m], 0 [m], 0 [m]
+  Rotation Axis Type = Principal Axis
+  Scale Vector = 1 , 1 , 1 
+  Translation Vector = 0 [m], 0 [m], 0 [m]
+  X = 0.0 [m]
+  Y = 0.0 [m]
+  Z = 0.0 [m]
+  END
+END""")
+Save(Overwrite=True)
+Reset()
+Extensions.UnloadExtension(
+    Id="5e7e01a6-8601-11e8-9f8c-28f10e13ffe6",
+    Version="2022.2",
+    Format="Binary")
+Extensions.UnloadExtension(
+    Id="5f463412-bd3e-484b-87e7-cbc0a665e474",
+    Version="2023.2",
+    Format="Binary")
+Extensions.UnloadExtension(
+    Id="20180725-3f81-49eb-9f31-41364844c769",
+    Version="2023.2",
+    Format="Binary")
+Extensions.UnloadExtension(
+    Id="f3e3da52-fb02-4910-8cc9-980efd047bc6",
+    Version="2023.1",
+    Format="Binary")

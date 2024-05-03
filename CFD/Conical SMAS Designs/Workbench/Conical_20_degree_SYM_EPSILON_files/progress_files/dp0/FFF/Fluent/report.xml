@@ -1,0 +1,213 @@
+<FluentXMLReport>
+<version>
+Fluent
+Version: 3d, dp, pbns, ske (3d, double precision, pressure-based, standard k-epsilon)
+Release: 21.1.0
+Title: 
+</version>
+
+<Models>
+
+Models
+------
+
+   Model                        Settings                              
+   ----------------------------------------------------------------
+   Space                        3D                                    
+   Time                         Steady                                
+   Viscous                      Standard k-epsilon turbulence model   
+   Wall Treatment               Standard Wall Functions               
+   Heat Transfer                Disabled                              
+   Solidification and Melting   Disabled                              
+   Species                      Disabled                              
+   Coupled Dispersed Phase      Disabled                              
+   NOx Pollutants               Disabled                              
+   SOx Pollutants               Disabled                              
+   Soot                         Disabled                              
+   Mercury Pollutants           Disabled                              
+   Structure                    Disabled                              
+   Acoustics                    Disabled                              
+   Eulerian Wall Film           Disabled                              
+   Potential/Li-ion Battery     Disabled                              
+   Multiphase                   Disabled                              
+
+</Models>
+
+<MaterialProperties>
+Material Properties
+-------------------
+
+   Material: air (fluid)
+
+      Property                        Units      Method     Value(s)     
+      ----------------------------------------------------------------
+      Density                         kg/m^3     constant   1.225        
+      Cp (Specific Heat)              J/(kg K)   constant   1006.43      
+      Thermal Conductivity            W/(m K)    constant   0.0242       
+      Viscosity                       kg/(m s)   constant   1.7894e-05   
+      Molecular Weight                kg/kmol    constant   28.966       
+      Thermal Expansion Coefficient   K^-1       constant   0            
+      Speed of Sound                  m/s        none       #f           
+
+   Material: aluminum (solid)
+
+      Property               Units      Method     Value(s)   
+      -----------------------------------------------------
+      Density                kg/m^3     constant   2719       
+      Cp (Specific Heat)     J/(kg K)   constant   871        
+      Thermal Conductivity   W/(m K)    constant   202.4      
+
+</MaterialProperties>
+
+<CellZoneConditions>
+Cell Zone Conditions
+--------------------
+
+   Zones
+
+      name                id   type    
+      ------------------------------
+      conical_20_degree   3    fluid   
+
+   Setup Conditions
+
+      conical_20_degree
+
+         Condition       Value   
+         ---------------------
+         Frame Motion?   no      
+
+</CellZoneConditions>
+
+<BoundaryConditions>
+Boundary Conditions
+-------------------
+
+   Zones
+
+      name                     id   type              
+      ---------------------------------------------
+      wall-conical_20_degree   1    wall              
+      symmetry                 6    symmetry          
+      outlet                   7    pressure-outlet   
+      top                      8    wall              
+      inlet                    9    velocity-inlet    
+      wall                     10   wall              
+      bottom                   11   wall              
+
+   Setup Conditions
+
+      wall-conical_20_degree
+
+         Condition                  Value             
+         ------------------------------------------
+         Wall Motion                Stationary Wall   
+         Shear Boundary Condition   No Slip           
+
+      symmetry
+
+         Condition   Value   
+         -----------------
+
+      outlet
+
+         Condition   Value   
+         -----------------
+
+      top
+
+         Condition                  Value             
+         ------------------------------------------
+         Wall Motion                Stationary Wall   
+         Shear Boundary Condition   No Slip           
+
+      inlet
+
+         Condition                  Value   
+         --------------------------------
+         Velocity Magnitude [m/s]   5.5     
+
+      wall
+
+         Condition                  Value             
+         ------------------------------------------
+         Wall Motion                Stationary Wall   
+         Shear Boundary Condition   No Slip           
+
+      bottom
+
+         Condition                  Value             
+         ------------------------------------------
+         Wall Motion                Stationary Wall   
+         Shear Boundary Condition   No Slip           
+
+</BoundaryConditions>
+
+<SolverSettings>
+Solver Settings
+---------------
+
+   Equations
+
+      Equation     Solved   
+      -------------------
+      Flow         yes      
+      Turbulence   yes      
+
+   Numerics
+
+      Numeric                         Enabled   
+      ---------------------------------------
+      Absolute Velocity Formulation   yes       
+
+   Pseudo Transient Explicit Relaxation Factors
+
+      Variable                     Relaxation Factor   
+      ----------------------------------------------
+      Density                      1                   
+      Body Forces                  1                   
+      Turbulent Kinetic Energy     0.75                
+      Turbulent Dissipation Rate   0.75                
+      Turbulent Viscosity          1                   
+      Explicit Momentum            0.5                 
+      Explicit Pressure            0.5                 
+
+   Linear Solver
+
+      Variable                     Solver Type   Termination Criterion   Residual Reduction Tolerance   
+      -----------------------------------------------------------------------------------------------
+      Flow                         F-Cycle       0.1                                                    
+      Turbulent Kinetic Energy     F-Cycle       0.1                                                    
+      Turbulent Dissipation Rate   F-Cycle       0.1                                                    
+
+   Pressure-Velocity Coupling
+
+      Parameter          Value     
+      --------------------------
+      Type               Coupled   
+      Pseudo Transient   yes       
+
+   Discretization Scheme
+
+      Variable                     Scheme                
+      ------------------------------------------------
+      Pressure                     Second Order          
+      Momentum                     Second Order Upwind   
+      Turbulent Kinetic Energy     First Order Upwind    
+      Turbulent Dissipation Rate   First Order Upwind    
+
+   Solution Limits
+
+      Quantity                         Limit    
+      ---------------------------------------
+      Minimum Absolute Pressure        1        
+      Maximum Absolute Pressure        5e+10    
+      Minimum Temperature              1        
+      Maximum Temperature              5000     
+      Minimum Turb. Kinetic Energy     1e-14    
+      Minimum Turb. Dissipation Rate   1e-20    
+      Maximum Turb. Viscosity Ratio    100000   
+
+</SolverSettings>
+
+</FluentXMLReport>

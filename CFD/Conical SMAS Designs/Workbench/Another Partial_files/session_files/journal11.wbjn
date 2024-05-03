@@ -1,0 +1,51 @@
+# encoding: utf-8
+# 2023 R2
+SetScriptVersion(Version="23.2.142")
+system1 = GetSystem(Name="FFF")
+resultsComponent1 = system1.GetComponent(Name="Results")
+resultsComponent1.UpdateUpstreamComponents()
+setup1 = system1.GetContainer(ComponentName="Setup")
+setup1.SendCommand(Command='(cx-gui-do cx-activate-tab-index "NavigationPane*Frame1(TreeTab)" 0)(cx-gui-do cx-activate-tab-index "NavigationPane*Frame1(TreeTab)" 1)')
+setup1.SendCommand(Command='/file/set-tui-version "23.2"')
+solution1 = system1.GetContainer(ComponentName="Solution")
+solution1.Edit()
+setup1.SendCommand(Command='(cx-gui-do cx-activate-tab-index "NavigationPane*Frame1(TreeTab)" 0)(cx-gui-do cx-activate-tab-index "NavigationPane*Frame1(TreeTab)" 1)')
+setup1.SendCommand(Command='/file/set-tui-version "23.2"(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Results|Graphics"))(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Results|Graphics"))')
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Results|Graphics"))(cx-gui-do cx-activate-item "NavigationPane*Frame2*Table1*List_Tree2")')
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Results|Graphics"))(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Results|Graphics|Vectors"))')
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Results|Graphics|Vectors"))(cx-gui-do cx-activate-item "NavigationPane*Frame2*Table1*List_Tree2")')
+setup1.SendCommand(Command='(cx-gui-do cx-set-list-tree-selections "NavigationPane*Frame2*Table1*List_Tree2" (list "Results|Graphics|Vectors"))(cx-gui-do cx-activate-item "Vectors*PanelButtons*PushButton1(OK)")')
+setup1.SendCommand(Command="(cx-gui-do cx-set-real-entry-list \"Vectors*Table1*Frame2*Frame3*RealEntry1(Scale)\" '( 3))(cx-gui-do cx-set-integer-entry \"Vectors*Table1*Frame2*Frame3*IntegerEntry2(Skip)\" 5)(cx-gui-do cx-activate-item \"Vectors*Table1*Frame2*Frame3*IntegerEntry2(Skip)\")")
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "Vectors*Table1*Frame2*Frame3*IntegerEntry2(Skip)")')
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "Vectors*PanelButtons*PushButton1(OK)")')
+setup1.SendCommand(Command="(cx-gui-do cx-set-list-selections \"Vectors*Table1*Table3*Frame6*List2(Surfaces)\" '( 0 1 2 3 4 5))(cx-gui-do cx-activate-item \"Vectors*Table1*Table3*Frame6*List2(Surfaces)\")(cx-gui-do cx-activate-item \"Vectors*PanelButtons*PushButton1(OK)\")")
+setup1.SendCommand(Command="(cx-gui-do cx-set-list-selections \"Vectors*Table1*Table3*Frame6*List2(Surfaces)\" '( 0 1 2 3 4 5 6))(cx-gui-do cx-activate-item \"Vectors*Table1*Table3*Frame6*List2(Surfaces)\")(cx-gui-do cx-set-list-selections \"Vectors*Table1*Table3*Frame6*List2(Surfaces)\" '( 0 1 2 3 4 6))(cx-gui-do cx-activate-item \"Vectors*Table1*Table3*Frame6*List2(Surfaces)\")(cx-gui-do cx-activate-item \"Vectors*PanelButtons*PushButton1(OK)\")")
+setup1.SendCommand(Command="(cx-gui-do cx-set-list-selections \"Vectors*Table1*Table3*Frame6*List2(Surfaces)\" '( 0 1 2 3 4 5 6))(cx-gui-do cx-activate-item \"Vectors*Table1*Table3*Frame6*List2(Surfaces)\")(cx-gui-do cx-set-list-selections \"Vectors*Table1*Table3*Frame6*List2(Surfaces)\" '( 0 1 2 3 5 6))(cx-gui-do cx-activate-item \"Vectors*Table1*Table3*Frame6*List2(Surfaces)\")(cx-gui-do cx-activate-item \"Vectors*PanelButtons*PushButton1(OK)\")")
+setup1.SendCommand(Command="(cx-gui-do cx-set-list-selections \"Vectors*Table1*Table3*Frame6*List2(Surfaces)\" '( 0 1 2 5 6))(cx-gui-do cx-activate-item \"Vectors*Table1*Table3*Frame6*List2(Surfaces)\")(cx-gui-do cx-activate-item \"Vectors*PanelButtons*PushButton1(OK)\")")
+setup1.SendCommand(Command="(cx-gui-do cx-set-list-selections \"Vectors*Table1*Table3*Frame6*List2(Surfaces)\" '( 0 1 2 3 5 6))(cx-gui-do cx-activate-item \"Vectors*Table1*Table3*Frame6*List2(Surfaces)\")(cx-gui-do cx-set-list-selections \"Vectors*Table1*Table3*Frame6*List2(Surfaces)\" '( 0 1 3 5 6))(cx-gui-do cx-activate-item \"Vectors*Table1*Table3*Frame6*List2(Surfaces)\")(cx-gui-do cx-activate-item \"Vectors*PanelButtons*PushButton1(OK)\")")
+setup1.SendCommand(Command="(cx-gui-do cx-set-list-selections \"Vectors*Table1*Table3*Frame6*List2(Surfaces)\" '( 0 3 5 6))(cx-gui-do cx-activate-item \"Vectors*Table1*Table3*Frame6*List2(Surfaces)\")(cx-gui-do cx-activate-item \"Vectors*PanelButtons*PushButton1(OK)\")")
+setup1.SendCommand(Command="(cx-gui-do cx-set-real-entry-list \"Vectors*Table1*Frame2*Frame3*RealEntry1(Scale)\" '( 5))")
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "Vectors*Table1*Frame2*Frame3*RealEntry1(Scale)")')
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "Vectors*PanelButtons*PushButton1(OK)")')
+setup1.SendCommand(Command="(cx-use-window-id 51)(cxg-clear-all-selections (cx-active-window))(cxg-add-surfaces-to-selection '() (cx-active-window))(cx-use-window-id 51)(cx-use-window-id 51)(cx-set-camera-relative '(-6.72102 -0.183467 -3.66476) '(0 0 0) '(0.503599 -0.661931 0.795048) 0 0)(cx-gui-do cx-set-list-selections \"Vectors*Table1*Table3*Frame6*List2(Surfaces)\" '( 0 5 6))(cx-gui-do cx-activate-item \"Vectors*Table1*Table3*Frame6*List2(Surfaces)\")(cx-gui-do cx-activate-item \"Vectors*PanelButtons*PushButton1(OK)\")")
+setup1.SendCommand(Command="(cx-use-window-id 51)(cx-use-window-id 51)(cx-set-camera-relative '(6.32866 3.38873 2.98408) '(0 0 0) '(-0.195805 0.539434 -1.16282) 0 0)(cx-gui-do cx-set-list-selections \"Vectors*Table1*Table3*Frame6*List2(Surfaces)\" '( 0 3 5 6))(cx-gui-do cx-activate-item \"Vectors*Table1*Table3*Frame6*List2(Surfaces)\")(cx-gui-do cx-activate-item \"Vectors*PanelButtons*PushButton1(OK)\")")
+setup1.SendCommand(Command="(cx-use-window-id 51)(cx-set-camera-relative '(1.27788 4.60677 -5.84013) '(0 0 0) '(-0.098742 -0.718499 -0.59712) 0 0)(cx-use-window-id 51)(cx-use-window-id 51)(cx-set-camera-relative '(2.8047 -13.2732 3.05493) '(0 0 0) '(-0.163821 0.732802 -0.136558) 0 0)(cx-gui-do cx-activate-item \"Vectors*PanelButtons*PushButton2(Cancel)\")")
+setup1.SendCommand(Command='(cx-gui-do cx-activate-item "MenuBar*FileMenu*Close Fluent")(cx-gui-do cx-activate-item "Settings have changed!*PanelButtons*PushButton1(OK)")')
+Save(Overwrite=True)
+Reset()
+Extensions.UnloadExtension(
+    Id="5e7e01a6-8601-11e8-9f8c-28f10e13ffe6",
+    Version="2022.2",
+    Format="Binary")
+Extensions.UnloadExtension(
+    Id="5f463412-bd3e-484b-87e7-cbc0a665e474",
+    Version="2023.2",
+    Format="Binary")
+Extensions.UnloadExtension(
+    Id="20180725-3f81-49eb-9f31-41364844c769",
+    Version="2023.2",
+    Format="Binary")
+Extensions.UnloadExtension(
+    Id="f3e3da52-fb02-4910-8cc9-980efd047bc6",
+    Version="2023.1",
+    Format="Binary")

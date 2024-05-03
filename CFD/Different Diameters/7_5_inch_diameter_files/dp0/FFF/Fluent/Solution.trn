@@ -1,0 +1,70 @@
+Transcript Start Time:  11:19:46, 30 Oct 2023 Mountain Daylight Time 
+Current Directory: "U:\Senior Design - Snow\CFD"
+
+Build Time: May 29 2023 07:52:07 EDT 
+Executable Path: C:/PROGRA~1/ANSYSI~1/v232/fluent/ntbin/win64/fluent.exe
+
+-------------------------------------------------------------------------------
+ID    Hostname  Core  O.S.         PID    Vendor                             
+-------------------------------------------------------------------------------
+n3    VCL-13    4/28  Windows-x64  14008  AMD EPYC 7453 28-Core Processor    
+n2    VCL-13    3/28  Windows-x64  16724  AMD EPYC 7453 28-Core Processor    
+n1    VCL-13    2/28  Windows-x64  14400  AMD EPYC 7453 28-Core Processor    
+n0*   VCL-13    1/28  Windows-x64  17140  AMD EPYC 7453 28-Core Processor    
+host  VCL-13          Windows-x64  3256   AMD EPYC 7453 28-Core Processor    
+
+MPI Option Selected: intel
+Selected system interconnect: default
+-------------------------------------------------------------------------------
+
+Cortex Process ID: 6312 
+License Server Path: SERVER=1055@ansys.engr.colostate.edu;1055@ansys.engr.colostate.edu 
+Multicore processors detected. Processor affinity set!
+Reading setting file in cache: "U:\Senior Design - Snow\CFD\7_5_inch_diameter_files\dp0\FFF\Fluent\FFF.set"
+Reading "U:\Senior Design - Snow\CFD\7_5_inch_diameter_files\dp0\FFF\MECH\FFF.1.msh"...
+Buffering for file scan...
+
+   21896 nodes, binary.
+    5489 nodes, binary.
+  288393 triangular interior faces, zone  1, binary.
+    2858 triangular symmetry faces, zone  5, binary.
+    6950 triangular wall faces, zone  6, binary.
+     156 triangular velocity-inlet faces, zone  7, binary.
+     156 triangular pressure-outlet faces, zone  8, binary.
+     858 triangular wall faces, zone  9, binary.
+  146941 tetrahedral cells, zone  2, binary.
+
+
+
+Following contexts active in the case file have been de-activated because of their current context control conditions:
+"coupled-pseudo-transient"
+
+Building...
+     mesh
+	auto partitioning mesh by Metis (fast),
+	distributing mesh
+		parts....,
+		faces....,
+		nodes....,
+		cells....,
+        bandwidth reduction using Reverse Cuthill-McKee: 36683/1037 = 35.3742
+     materials,
+     interface,
+     domains,
+	mixture
+     zones,
+	walls
+	outlet
+	inlet
+	chamber
+	symmetry
+	domain
+	interior-domainSetting domain (mixture) ... Done.
+
+WARNING: Current Mesh is incompatible with mesh operations defined. Following zones are missing:
+	far_field
+
+Applying mesh operation "Change Zone Type"
+zone id/name/list [] Enter zone id/name/list
+Transcript Stop Time:  11:19:58, 30 Oct 2023 Mountain Daylight Time 
+Total Transcript Time: 0 Minute 12 Second.

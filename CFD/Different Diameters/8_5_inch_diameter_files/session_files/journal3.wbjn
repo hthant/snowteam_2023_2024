@@ -1,0 +1,8 @@
+# encoding: utf-8
+# 2023 R2
+SetScriptVersion(Version="23.2.142")
+system1 = GetSystem(Name="FFF 2")
+geometryComponent1 = system1.GetComponent(Name="Geometry")
+system2 = system1.Duplicate(
+    ComponentsToShare=[geometryComponent1],
+    RelativeTo=system1)
