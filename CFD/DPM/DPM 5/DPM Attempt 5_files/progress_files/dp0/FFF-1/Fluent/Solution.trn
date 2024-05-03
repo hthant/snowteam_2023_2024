@@ -1,0 +1,114 @@
+Transcript Start Time:  10:12:20, 30 Jan 2024 Mountain Standard Time 
+Current Directory: "U:"
+
+Build Time: May 29 2023 07:55:29 EDT 
+Executable Path: C:/PROGRA~1/ANSYSI~1/v232/fluent/ntbin/win64/fluent.exe
+
+-------------------------------------------------------------------------------
+ID    Hostname      Core  O.S.         PID    Vendor                          
+-------------------------------------------------------------------------------
+n3    MAGELLAN5-08  4/16  Windows-x64  8752   Intel(R) Core(TM) i7-10700      
+n2    MAGELLAN5-08  3/16  Windows-x64  8816   Intel(R) Core(TM) i7-10700      
+n1    MAGELLAN5-08  2/16  Windows-x64  3068   Intel(R) Core(TM) i7-10700      
+n0*   MAGELLAN5-08  1/16  Windows-x64  10232  Intel(R) Core(TM) i7-10700      
+host  MAGELLAN5-08        Windows-x64  9948   Intel(R) Core(TM) i7-10700      
+
+MPI Option Selected: intel
+Selected system interconnect: default
+-------------------------------------------------------------------------------
+
+Cortex Process ID: 11224 
+License Server Path: SERVER=1055@ansys.engr.colostate.edu;1055@ansys.engr.colostate.edu 
+Multicore SMT processors detected. Processor affinity set!
+Reading setting file in cache: "C:\Users\lrickert\AppData\Local\Temp\1\WB_lrickert_7028_2\wbnew_files\dp0\FFF-1\Fluent\FFF.1.set"
+Reading "C:\Users\lrickert\AppData\Local\Temp\1\WB_lrickert_7028_2\wbnew_files\dp0\FFF-1\MECH\FFF-1.msh"...
+Buffering for file scan...
+
+    2963 nodes, binary.
+     354 nodes, binary.
+    6110 2D interior faces, zone  1, binary.
+      40 2D velocity-inlet faces, zone  5, binary.
+      40 2D pressure-outlet faces, zone  6, binary.
+      50 2D wall faces, zone  7, binary.
+      50 2D wall faces, zone  8, binary.
+     174 2D wall faces, zone  9, binary.
+    3146 mixed cells, zone  4, binary.
+
+
+Building...
+     mesh
+	auto partitioning mesh by Metis (fast),
+	distributing mesh
+		parts....,
+		faces....,
+		nodes....,
+		cells....,
+        bandwidth reduction using Reverse Cuthill-McKee: 765/35 = 21.8571
+     materials,
+     interface,
+     domains,
+	mixture
+     zones,
+	chamber
+	bottom
+	top
+	outlet
+	inlet
+	air
+	interior-airSetting air (mixture) ... Done.
+ Setting zone id of air to 4.
+ Setting zone id of interior-air to 1.
+ Setting zone id of inlet to 5.
+ Setting zone id of outlet to 6.
+ Setting zone id of top to 7.
+ Setting zone id of bottom to 8.
+ Setting zone id of chamber to 9.
+Done.
+Setting air (mixture) ... Done.
+Setting interior-air (mixture) ... Done.
+Setting inlet (mixture) ... Done.
+Setting outlet (mixture) ... Done.
+Setting top (mixture) ... Done.
+Setting bottom (mixture) ... Done.
+Setting chamber (mixture) ... Done.
+
+     parallel,
+Done.
+
+Preparing mesh for display...
+Done.
+
+Setting Post Processing and Surfaces information ...	 Done.
+Fast-loading "C:\PROGRA~1\ANSYSI~1\v232\fluent\fluent23.2.0\\addons\afd\lib\hdfio.bin"
+Done.
+
+Writing to MAGELLAN5-08:"C:\Users\lrickert\AppData\Local\Temp\1\WB_lrickert_7028_2\wbnew_files\dp0\FFF-1\Fluent\FFF-1-Setup-Output.cas.h5" in NODE0 mode and compression level 1 ...
+Grouping cells for Laplace smoothing ...
+        3146 cells,     1 zone  ...
+        6464 faces,     6 zones ...
+        3317 nodes,     1 zone  ...
+  Done.
+Done.
+
+Performance Timer for 0 iterations on 4 compute nodes
+  Average wall-clock time per iteration:                0.000 sec
+  Global reductions per iteration:                          0 ops
+  Global reductions time per iteration:                 0.000 sec (0.0%)
+  Message count per iteration:                              0 messages
+  Data transfer per iteration:                          0.000 MB
+  LE solves per iteration:                                  0 solves
+  LE wall-clock time per iteration:                     0.000 sec (0.0%)
+  LE global solves per iteration:                           0 solves
+  LE global wall-clock time per iteration:              0.000 sec (0.0%)
+  LE global matrix maximum size:                            0
+  AMG cycles per iteration:                             0.000 cycles
+  Relaxation sweeps per iteration:                          0 sweeps
+  Relaxation exchanges per iteration:                       0 exchanges
+  LE early protections (stall) per iteration:           0.000 times
+  LE early protections (divergence) per iteration:      0.000 times
+  Total SVARS touched:                                    368
+
+  Total wall-clock time:                                0.000 sec
+
+Transcript Stop Time:  10:12:29, 30 Jan 2024 Mountain Standard Time 
+Total Transcript Time: 0 Minute 9 Second.
